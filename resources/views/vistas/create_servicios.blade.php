@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="estilos-generales.css">
     <link rel="stylesheet" href="{{asset('styles/dashboard.css')}}">
     <link rel="stylesheet" href="{{asset('styles/create_servicios.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/create_servicios.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/dashboard.css">
 </head>
 <body>
     <div class="dashboard-container">
