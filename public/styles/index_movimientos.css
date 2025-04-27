@@ -1,0 +1,74 @@
+
+.historial-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#tabla-movimientos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#tabla-movimientos th,
+#tabla-movimientos td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+#tabla-movimientos th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+#tabla-movimientos tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.positivo {
+    color: #28a745; /* Verde para ingresos */
+}
+
+.negativo {
+    color: #dc3545; /* Rojo para egresos */
+}
+
+.ver-detalle-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.ver-detalle-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 768px) {
+    #tabla-movimientos th,
+    #tabla-movimientos td {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    .ver-detalle-button {
+        font-size: 0.8em;
+        padding: 5px 8px;
+    }
+}

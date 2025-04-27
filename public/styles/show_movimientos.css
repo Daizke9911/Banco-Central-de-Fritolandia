@@ -1,0 +1,75 @@
+
+.detalle-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: auto
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.info-group {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 15px;
+    align-items: baseline;
+}
+
+.info-group label {
+    color: #555;
+    font-weight: bold;
+    width: 150px;
+    text-align: left;
+}
+
+.info-group span {
+    color: #333;
+    flex-grow: 1;
+}
+
+.info-group.monto span {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #28a745; /* Color verde para indicar éxito */
+}
+
+.acciones {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.acciones button , a{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.descargar-pdf-button {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.descargar-pdf-button:hover {
+    background-color: #138496;
+}
+
+.volver-button , .volver-a{
+    background-color: #6c757d;
+    color: white;
+}
+
+.volver-button:hover , .volver-a{
+    background-color: #5a6268;
+}
