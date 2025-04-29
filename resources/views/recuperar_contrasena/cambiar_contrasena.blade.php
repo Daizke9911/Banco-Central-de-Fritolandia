@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aperturar Cuenta</title>
+    <title>{{ __('Recuperar Contraseña') }} - Paso 3</title>
     <link rel="stylesheet" href="{{asset('styles/register.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/register.css">
 </head>
