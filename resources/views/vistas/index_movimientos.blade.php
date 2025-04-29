@@ -6,7 +6,7 @@
     <title>Movimientos</title>
     <link rel="stylesheet" href="{{asset('styles/dashboard.css')}}">
     <link rel="stylesheet" href="{{asset('styles/index_movimientos.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/dindex_movimientos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/index_movimientos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/dashboard.css">
 </head>
 <body>
