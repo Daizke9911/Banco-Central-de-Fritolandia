@@ -25,10 +25,10 @@
             <button type="submit" class="login-button">Entrar</button>
 
             <div class="forgot-password">
-                <a href="{{route('olvide')}}">¿Olvidaste tu contraseña?</a>
+                <a href="{{route('register')}}">¿Eres Nuevo? Registrate!</a>
             </div>
             <div class="forgot-password">
-                <a href="{{route('register')}}">¿Eres Nuevo? Registrate!</a>
+                <a href="{{route('vista_verificar_usuario')}}">¿Olvidaste la Contraseña?</a>
             </div>
         </form>
     </div>
