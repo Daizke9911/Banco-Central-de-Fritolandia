@@ -71,7 +71,11 @@
                     <span id="fecha-hora-transferencia"></span>
                 </div>
                 <div class="acciones">
-                    <button class="descargar-pdf-button">Descargar PDF</button>
+                    <form action="{{route('pdf_movimientos', ['id' => $movimientos->id])}}" method="GET">
+                        @csrf
+                        <button class="descargar-pdf-button" type="submit">Descargar PDF</button>
+                    </form>
+                    
                     <button class="volver-button" scr="{{route('movimientos.index')}}">Volver</button>
                 </div>
             </div>
@@ -94,13 +98,7 @@
             document.getElementById('fecha-hora-transferencia').textContent = formattedDateTime;
 
             // Funcionalidad simulada para los botones
-            const descargarPdfButton = document.querySelector('.descargar-pdf-button');
-            if (descargarPdfButton) {
-                descargarPdfButton.addEventListener('click', function() {
-                    alert('Simulando la descarga del PDF...');
-                    // Aquí iría la lógica real para generar y descargar el PDF
-                });
-            }
+            
 
             const volverButton = document.querySelector('.volver-button');
             if (volverButton) {

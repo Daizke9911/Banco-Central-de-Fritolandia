@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class MovimientosController extends Controller
 {
@@ -181,5 +182,10 @@ class MovimientosController extends Controller
         $movimientos = Movimientos::where('user_id', Auth::user()->id)->find($movimiento);
 
         return view('vistas.show_movimientos', compact('movimientos'));
+    }
+
+    public function pdf_movimiento($id){
+        $movimientos = Movimientos::find($id);
+        return Pdf::loadView('vistas.pdf_movimientos', compact('movimientos'))->download($movimientos->reference . '.pdf');
     }
 }

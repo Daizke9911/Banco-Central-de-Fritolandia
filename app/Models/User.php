@@ -34,7 +34,8 @@ class User extends Authenticatable
         'respuesta_3',
         'imagenPerfil',
         'imagenCedula',
-        'password'
+        'password',
+        'role'
     ];
 
     /**

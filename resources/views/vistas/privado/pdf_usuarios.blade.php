@@ -14,7 +14,6 @@
             text-align: center;
         }
         table {
-          border-collapse: collapse;
           width: 100%;
         }
         
@@ -37,9 +36,16 @@
       <img src="{{asset('files/logo_bcf.png')}}" width="100" height="100">
         <div class="h1">
             <h1>Lista de Usuarios</h1>
+            <h4>Banco Central de Fritolandia C.A 2025</h4>
         </div>
         <div>
-            <p>Lista solicitada por {{Auth::user()->name}} V-{{Auth::user()->cedula}}</p>
+            <p>Lista solicitada por {{Auth::user()->name}} V-{{Auth::user()->cedula}}
+              @if (Auth::user()->role === "admin")
+                  <b>Administrador</b>
+              @else
+                  <b>Moderador</b>
+              @endif
+            </p>
             <p>Solicitado el {{$date=date('d-m-Y')}} a las {{$date=date('H:i:s')}}</p>
         </div>
             <div>

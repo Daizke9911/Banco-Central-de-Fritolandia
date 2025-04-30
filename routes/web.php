@@ -54,3 +54,4 @@ Route::post('/update-aspecto', [SistemaController::class, 'update_aspecto'])->mi
 
 //PDF
 Route::get('/pdf', [UsersController::class, 'pdf'])->middleware(['auth', 'verified'])->name('pdf');
+Route::get('/movimientos/pdf/{id}', [MovimientosController::class, 'pdf_movimiento'])->middleware(['auth', 'verified'])->name('pdf_movimientos');

@@ -114,6 +114,10 @@ class UsersController extends Controller
     }
 
     public function pdf(){
+        if (! Gate::allows('viewAny', auth()->user())) {
+            abort(403, 'No tienes autorización para esta acción, compre oro');
+        }
+
         $users = User::where('id', '!=', Auth::user()->id)->get();
         $pdf = Pdf::loadView('vistas.privado.pdf_usuarios', compact('users'));
         return $pdf->stream();
