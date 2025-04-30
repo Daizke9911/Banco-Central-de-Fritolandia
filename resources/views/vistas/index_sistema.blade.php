@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema - Información Personal</title>
     <link rel="stylesheet" href="{{asset('styles/show_movimientos.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/show_movimientos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/show_movimientos.css">
     <link rel="stylesheet" href="{{asset('styles/dashboard.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/dashboard.css">
     <link rel="stylesheet" href="{{asset('styles/index_sistema.css')}}">
@@ -17,6 +17,7 @@
         window.backgraund = "{{ Auth::user()->tema->backgraund ?? null }}";
     </script>
     <script src="{{asset('js/theme.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/js/theme.js"></script>
 </head>
 <body>
     <div class="dashboard-container">
