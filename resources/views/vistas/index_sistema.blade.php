@@ -10,14 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/dashboard.css">
     <link rel="stylesheet" href="{{asset('styles/index_sistema.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/index_sistema.css">
-    <script>
-        window.sidebar = "{{ Auth::user()->tema->sidebar ?? null }}";
-        window.buttonSidebar = "{{ Auth::user()->tema->button_sidebar ?? null }}";
-        window.textColorSidebar = "{{ Auth::user()->tema->text_color_sidebar ?? null }}";
-        window.backgraund = "{{ Auth::user()->tema->backgraund ?? null }}";
-    </script>
-    <script src="{{asset('js/theme.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/js/theme.js"></script>
+
+    <x-temas />
 </head>
 <body>
     <div class="dashboard-container">

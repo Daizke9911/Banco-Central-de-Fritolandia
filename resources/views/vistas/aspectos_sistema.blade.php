@@ -26,13 +26,7 @@
             transform: scale(1.1); /* Escala al 110% al pasar el ratón */
         }
     </style>
-    <script>
-        window.sidebar = "{{ Auth::user()->tema->sidebar ?? null }}";
-        window.buttonSidebar = "{{ Auth::user()->tema->button_sidebar ?? null }}";
-        window.textColorSidebar = "{{ Auth::user()->tema->text_color_sidebar ?? null }}";
-        window.backgraund = "{{ Auth::user()->tema->backgraund ?? null }}";
-    </script>
-    <script src="{{asset('js/theme.js')}}"></script>
+    <x-temas />
 </head>
 <body>
     <div class="dashboard-container">
