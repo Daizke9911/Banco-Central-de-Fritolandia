@@ -4,8 +4,8 @@
 }
 
 .barra-superior a{
-    background-color: #343a40;
-    color: white;
+    background-color: var(--button-sidebar);
+    color: var(--text-color-sidebar);
     text-decoration: none;
     text-align: center;
     width: 100%;

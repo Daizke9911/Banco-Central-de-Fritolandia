@@ -27,7 +27,7 @@ Route::post('/iniciar-sesion',[LoginController::class, 'login'])
 Route::get('/logout',[LoginController::class, 'logout'])
 ->name('logout');
 
-//RECUPERAR CONTRASEÑA
+//RECUPERAR CONTRASEÑA DESDE EL LOGIN
 Route::get('/recuperar/contrasena', [ForgotPasswordController::class, 'vista_verificar_usuario'])->name('vista_verificar_usuario');
 Route::post('/validar/usuario', [ForgotPasswordController::class, 'verificar_usuario'])->name('verificar_usuario');
 Route::get('/recuperar/contrasena/preguntas', [ForgotPasswordController::class, 'vista_preguntas_seguridad'])->name('vista_preguntas_seguridad')->middleware('password.recover');
@@ -51,3 +51,6 @@ Route::get('/cambiar/contrasena', [SistemaController::class, 'cambio_contrasena'
 Route::post('/cambiar/contrasena/validar', [SistemaController::class, 'validar'])->middleware(['auth', 'verified'])->name('validar_cambio_contrasena_sistema');
 Route::get('/aspectos', [SistemaController::class, 'aspecto'])->middleware(['auth', 'verified'])->name('aspecto');
 Route::post('/update-aspecto', [SistemaController::class, 'update_aspecto'])->middleware(['auth', 'verified'])->name('update_aspecto');
+
+//PDF
+Route::get('/pdf', [UsersController::class, 'pdf'])->middleware(['auth', 'verified'])->name('pdf');

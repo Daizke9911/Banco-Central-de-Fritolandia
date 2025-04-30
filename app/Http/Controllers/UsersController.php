@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class UsersController extends Controller
 {
@@ -110,5 +111,11 @@ class UsersController extends Controller
         $user->delete();
 
         return redirect(route('usuarios.index'));
+    }
+
+    public function pdf(){
+        $users = User::where('id', '!=', Auth::user()->id)->get();
+        $pdf = Pdf::loadView('vistas.privado.pdf_usuarios', compact('users'));
+        return $pdf->stream();
     }
 }

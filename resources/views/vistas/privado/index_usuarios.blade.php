@@ -95,7 +95,7 @@
                         <th>Nombre</th>
                         <th>Nombre de Usuario</th>
                         <th>Contacto</th>
-                        <th></th>
+                        <th><a href="{{route('pdf')}}" class="pdf">Generar PDF</a></th>
                     </tr>
                 </thead>
                 <tbody id="tbody-movimientos">
