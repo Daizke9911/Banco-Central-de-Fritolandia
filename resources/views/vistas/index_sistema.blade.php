@@ -1,12 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>En contruccion..........</title>
+    <title>Sistema - Información Personal</title>
+    <link rel="stylesheet" href="{{asset('styles/show_movimientos.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/show_movimientos.css">
+    <link rel="stylesheet" href="{{asset('styles/dashboard.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/dashboard.css">
+    <link rel="stylesheet" href="{{asset('styles/index_sistema.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/index_sistema.css">
+    <script>
+        window.sidebar = "{{ Auth::user()->tema->sidebar ?? null }}";
+        window.buttonSidebar = "{{ Auth::user()->tema->button_sidebar ?? null }}";
+        window.textColorSidebar = "{{ Auth::user()->tema->text_color_sidebar ?? null }}";
+        window.backgraund = "{{ Auth::user()->tema->backgraund ?? null }}";
+    </script>
+    <script src="{{asset('js/theme.js')}}"></script>
 </head>
 <body>
-    <h1>En contruccion..........</h1>
-</body>
+    <div class="dashboard-container">
+
+        <x-sidebar />  <!--SIDEBAR-->
+
+        <main class="main-content">
+            <header>
+                <h1>Configuraciones del Sistema</h1>
+                <div class="user-info">
+                    <a class="logout-btn" href="{{route('logout')}}">Cerrar Sesión</a>
+                </div>
+            </header>
+            <div class="content-area">
+
+                <x-botones_sistema />   <!--BOTONES-->
+
+                <div class="detalle-container" style="margin: 50px auto">
+                    <h2>Información Personal</h2>
+                    <div class="info-group">
+                        <label>Nombre Completo:</label>
+                        <span id="name">{{$infoUser->name}}</span>
+                    </div>
+                    <div class="info-group">
+                        <label>Cédula:</label>
+                        <span id="cedula">{{$infoUser->cedula}}</span>
+                    </div>
+                    <div class="info-group">
+                        <label>Número Teléfonico:</label>
+                        <span id="phone">{{$infoUser->phone}}</span>
+                    </div>
+                    <div class="info-group">
+                        <label>Nacimiento:</label>
+                        <span id="nacimientos">{{\Carbon\Carbon::parse($infoUser->nacimiento)->format('d/m/Y')}}</span>
+                    </div>
+                    <div class="info-group">
+                        <label>Correo:</label>
+                        <span id="email">{{$infoUser->email}}</span>
+                    </div>
+                    @foreach ($cuentas as $cuenta)
+                        @if ($cuenta->cuentaType == 1)
+                            <div class="info-group">
+                                <label>Cuenta Corriente:</label>
+                                <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
+                            </div>
+                            <div class="info-group monto">
+                                <label>Saldo:</label>
+                                <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}}</span>
+                            </div>
+                        @else
+                            <div class="info-group">
+                                <label>Cuenta Ahorro:</label>
+                                <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
+                            </div>
+                            <div class="info-group monto">
+                                <label>Saldo:</label>
+                                <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}}</span>
+                            </div>
+                        @endif
+                    @endforeach
+                    
+                </div>
+            </div>
+
+            
+        </main>
+    </div>
+    </body>
 </html>

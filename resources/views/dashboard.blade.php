@@ -16,6 +16,12 @@ foreach ($saldos as $saldo) {
     <link rel="stylesheet" href="{{asset('styles/dashboard.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/dashboard.css">
     
+    <script>
+        window.sidebar = "{{ Auth::user()->tema->sidebar ?? null }}";
+        window.buttonSidebar = "{{ Auth::user()->tema->button_sidebar ?? null }}";
+        window.textColorSidebar = "{{ Auth::user()->tema->text_color_sidebar ?? null }}";
+        window.backgraund = "{{ Auth::user()->tema->backgraund ?? null }}";
+    </script>
 </head>
 <body>
     <div class="dashboard-container">
@@ -61,5 +67,6 @@ foreach ($saldos as $saldo) {
             </div>
         </main>
     </div>
+    <script src="{{asset('js/theme.js')}}"></script>
     </body>
 </html>

@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
 
 class User extends Authenticatable
 {
@@ -60,5 +62,10 @@ class User extends Authenticatable
 
     public function cuenta(){
         return $this->hasMany(Cuentas::class);
+    }
+
+    public function tema(): HasOne
+    {
+        return $this->hasOne(Tema::class);
     }
 }

@@ -24,6 +24,13 @@
     <link rel="stylesheet" href="{{asset('styles/show_movimientos.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/show_movimientos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/dashboard.css">
+    <script>
+        window.sidebar = "{{ Auth::user()->tema->sidebar ?? null }}";
+        window.buttonSidebar = "{{ Auth::user()->tema->button_sidebar ?? null }}";
+        window.textColorSidebar = "{{ Auth::user()->tema->text_color_sidebar ?? null }}";
+        window.backgraund = "{{ Auth::user()->tema->backgraund ?? null }}";
+    </script>
+    <script src="{{asset('js/theme.js')}}"></script>
 </head>
 <body>
     <div class="dashboard-container">

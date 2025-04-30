@@ -1,0 +1,74 @@
+.barra-superior{
+    width: 100%;
+    display: flex;
+}
+
+.barra-superior a{
+    background-color: #343a40;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    padding: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.barra-superior a:hover{
+    background-color: #525a61;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+input[type="numeric"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    margin: 20px 0 ;
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.mb-3{
+    margin: 10px 0 0 0;
+}
+
+.elemento-animado {
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    display: inline-block; /* Para que el ancho y alto se ajusten al contenido */
+    transition: transform 0.3s cubic-bezier(0.4, 2, 0.6, 1); /* Transición suave con curva personalizada */
+  }
+  
+  .elemento-animado:hover {
+    transform: scale(1.1); /* Escala al 110% al pasar el ratón */
+  }

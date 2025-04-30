@@ -47,7 +47,7 @@
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="respuesta_3" class="form-label">{{ $user->pregunta_3 }}</label>
+                                        <label for="respuesta_3" class="form-label">{{ $user->pregunta_3 }}:</label>
                                         <input id="respuesta_3" type="text" class="form-control @error('answer_{{ $user->id }}') is-invalid @enderror" name="respuesta_3" required>
                                         @error('respuesta_3')
                                             <span class="invalid-feedback" role="alert">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cuentas;
 use App\Models\Roles;
+use App\Models\Tema;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -64,6 +65,13 @@ class LoginController extends Controller
                 }
             }while($number != 111);
         $user->cuenta()->save($cuenta); //crear cuenta
+
+        $tema = new Tema();
+        $tema->sidebar = "#343a40";
+        $tema->button_sidebar = "#007bff";
+        $tema->text_color_sidebar = "#fff";
+        $tema->background = "";
+        $user->tema()->save($tema);
 
         event(new Registered($user));
         

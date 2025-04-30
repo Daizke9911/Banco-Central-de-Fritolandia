@@ -12,7 +12,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-    background-color: #343a40;
+    background-color: var(--sidebar);
     color: #fff;
     width: 250px;
     padding: 20px;
@@ -31,7 +31,7 @@ body {
     display: block;
     padding: 10px 15px;
     text-decoration: none;
-    color: #ddd;
+    color: var(--text-color-sidebar);
     margin-bottom: 10px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -42,8 +42,8 @@ body {
 }
 
 .menu a.active {
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--button-sidebar);
+    color: var(--text-color-sidebar);
 }
 
 /* Main Content */

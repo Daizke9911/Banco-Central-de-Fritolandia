@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Cuentas;
+use App\Models\Tema;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -30,7 +31,15 @@ class UserSeeder extends Seeder
         $user->respuesta_2 = bcrypt('2');
         $user->pregunta_3 = '3';
         $user->respuesta_3 = bcrypt('3');
+        
         $user->save();
+
+        $tema = new Tema();
+        $tema->sidebar = "#343a40";
+        $tema->button_sidebar = "#007bff";
+        $tema->text_color_sidebar = "#fff";
+        $tema->background = "";
+        $user->tema()->save($tema);
 
         $cuenta = new Cuentas();
         $cuenta->accountNumber = '9911000001';
@@ -62,6 +71,13 @@ class UserSeeder extends Seeder
         $user->respuesta_3 = bcrypt('3');
         $user->save();
 
+        $tema = new Tema();
+        $tema->sidebar = "#343a40";
+        $tema->button_sidebar = "#007bff";
+        $tema->text_color_sidebar = "#fff";
+        $tema->background = "";
+        $user->tema()->save($tema);
+
         $cuenta = new Cuentas();
         $cuenta->accountNumber = '9911000003';
         $cuenta->availableBalance = '200';
@@ -91,6 +107,13 @@ class UserSeeder extends Seeder
         $user->pregunta_3 = '3';
         $user->respuesta_3 = bcrypt('3');
         $user->save();
+
+        $tema = new Tema();
+        $tema->sidebar = "#343a40";
+        $tema->button_sidebar = "#007bff";
+        $tema->text_color_sidebar = "#fff";
+        $tema->background = "";
+        $user->tema()->save($tema);
 
         $cuenta = new Cuentas();
         $cuenta->accountNumber = '9911000005';

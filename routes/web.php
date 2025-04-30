@@ -5,6 +5,8 @@ use App\Http\Controllers\MovimientosController;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\SistemaController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -44,4 +46,8 @@ Route::resource('usuarios', UsersController::class)
 ->only(['index','show', 'edit', 'update', 'destroy'])->middleware(['auth', 'verified'])->names('usuarios');
 
 //SISTEMA
-Route::view('/sistema', "vistas.index_sistema")->middleware(['auth', 'verified'])->name('sistema.index');
+Route::get('/sistema', [SistemaController::class, 'usuario'])->middleware(['auth', 'verified'])->name('sistema.index');
+Route::get('/cambiar/contrasena', [SistemaController::class, 'cambio_contrasena'])->middleware(['auth', 'verified'])->name('cambio_contrasena_sistema');
+Route::post('/cambiar/contrasena/validar', [SistemaController::class, 'validar'])->middleware(['auth', 'verified'])->name('validar_cambio_contrasena_sistema');
+Route::get('/aspectos', [SistemaController::class, 'aspecto'])->middleware(['auth', 'verified'])->name('aspecto');
+Route::post('/update-aspecto', [SistemaController::class, 'update_aspecto'])->middleware(['auth', 'verified'])->name('update_aspecto');
