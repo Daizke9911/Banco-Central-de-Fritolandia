@@ -10,13 +10,16 @@ document.addEventListener('DOMContentLoaded', function() {
         document.head.appendChild(style);
 
         // Aplica el color a elementos específicos usando la variable CSS
-        const elementsToColor = document.querySelectorAll('.sidebar, .otra-clase');
+        const elementsToColor = document.querySelectorAll('.sidebar');
         elementsToColor.forEach(element => {
             element.style.backgroundColor = `var(--sidebar)`;
-            // También puedes cambiar el color del texto u otras propiedades
-            element.style.button = 'var(--button-sidebar)';
-            element.style.textColor = 'var(--text-color-sidebar)';
-            element.style.backgraund = 'var(--backgraund)';
+            // element.style.backgroundColor = 'var(--backgraund)';
+        });
+        const elementsToColorDos = document.querySelectorAll('.menu a.active');
+        elementsToColorDos.forEach(element => {
+            element.style.backgroundColor = 'var(--button-sidebar)';
+            element.style.color = 'var(--text-color-sidebar)';
+            // element.style.backgroundColor = 'var(--backgraund)';
         });
     }
 
