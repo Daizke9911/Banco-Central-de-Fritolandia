@@ -18,7 +18,7 @@ RUN apk add --no-cache \
     libzip-dev \
     zip \
     unzip \
-    && docker-php-ext-install pdo pdo_mysql zip gd bcmath # La extensión bcmath se instala aquí
+    && docker-php-ext-install pdo pdo_mysql zip gd bcmath
 
 # Configuraciones
 COPY docker/nginx.conf /etc/nginx/nginx.conf
