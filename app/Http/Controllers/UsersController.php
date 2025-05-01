@@ -22,7 +22,36 @@ class UsersController extends Controller
         $mods = User::where('role', 'mod')->get();
 
         $users=User::where('id', '!=', Auth::user()->id)->where('role', '!=', "admin")->where('role', '!=', "mod")->paginate(3);
-        return view('vistas.privado.index_usuarios', compact('users', 'admins', 'mods'));
+        //EXCEL
+
+        $usersExcel=User::where('id', '!=', Auth::user()->id)->where('role', '!=', "admin")->where('role', '!=', "mod")->get();
+        
+        $usersData = [];
+
+        foreach ($usersExcel as $user) {
+            $userData = [
+                'ID' => $user->id,
+                'Nombre' => $user->name,
+                'Usuario' => $user->username,
+                'Cedula' => $user->cedula,
+                'Telefono' => $user->phone,
+                'Nacimiento' => $user->nacimiento,
+                'Correo' => $user->email,
+                'Rol' => $user->role,
+            ];
+
+            $cuentas = Cuentas::where('user_id', $user->id)->get(); // Obtener las cuentas como arrays
+
+            foreach ($cuentas as $index => $cuenta) {
+                $userData['Cuenta ' . ($index + 1)] = $cuenta['accountNumber'] ?? '';
+                $userData['Saldo ' . ($index + 1)] = $cuenta['availableBalance'] ?? '';
+                $userData['Tipo Cuenta ' . ($index + 1)] = ($cuenta['cuentaType'] == 1) ? 'Corriente' : (($cuenta['cuentaType'] == 2) ? 'Ahorro' : '');
+            }
+
+            $usersData[] = $userData;
+        }
+
+        return view('vistas.privado.index_usuarios', compact('users', 'admins', 'mods', 'usersData'), ['exportAll' => true]);
     }
 
     public function show($user){

@@ -53,5 +53,5 @@ Route::get('/aspectos', [SistemaController::class, 'aspecto'])->middleware(['aut
 Route::post('/update-aspecto', [SistemaController::class, 'update_aspecto'])->middleware(['auth', 'verified'])->name('update_aspecto');
 
 //PDF
-Route::get('/pdf', [UsersController::class, 'pdf'])->middleware('password.recover')->name('pdf');
+Route::get('/pdf', [UsersController::class, 'pdf'])->middleware(['auth', 'verified'])->name('pdf');
 Route::get('/movimientos/pdf/{id}', [MovimientosController::class, 'pdf_movimiento'])->middleware(['auth', 'verified'])->name('pdf_movimientos');

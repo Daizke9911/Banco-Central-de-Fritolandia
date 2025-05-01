@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/index_movimientos.css">
     <link rel="stylesheet" href="{{asset('styles/botones_index_usuarios.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/botones_index_usuarios.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <x-temas />
 </head>
 <body>
@@ -88,14 +89,19 @@
                 </tbody>
             </table>
             
-            <table id="tabla-movimientos">
+            <table id="miTablaDeDatos" class="tabla-movimientos">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Nombre de Usuario</th>
                         <th>Contacto</th>
-                        <th><a href="{{route('pdf')}}" class="pdf-generar">Generar PDF</a></th>
+                        <th>
+                            <a href="{{route('pdf')}}" class="pdf-generar">PDF</a>
+                            @if (Auth::user()->role == "admin")
+                                <button onclick="exportAllUsersFromData()" class="excel-generar">EXCEL</button>
+                            @endif
+                        </th>
                     </tr>
                 </thead>
                 <tbody id="tbody-movimientos">
@@ -128,9 +134,31 @@
                     @endforeach
                 </tbody>
             </table>
-            {{$users->links()}}
+            <x-pagination :users="$users"/>
         </main>
     </div>
-   
+<script>
+        const usersData = @json($usersData); // Pasar los datos de PHP a JavaScript
+
+        function exportAllUsersFromData(filename = 'usuarios_BCF.xlsx') {
+            if (!usersData || usersData.length === 0) {
+                console.error('No hay datos de usuarios para exportar.');
+                return;
+            }
+
+            // Crear un nuevo libro de trabajo
+            const wb = XLSX.utils.book_new();
+            const ws_name = "Usuarios";
+
+            // Convertir el array de objetos a una hoja de cálculo
+            const ws = XLSX.utils.json_to_sheet(usersData);
+
+            // Añadir la hoja al libro
+            XLSX.utils.book_append_sheet(wb, ws, ws_name);
+
+            // Descargar el archivo
+            XLSX.writeFile(wb, filename);
+        }
+    </script>
 </body>
 </html>

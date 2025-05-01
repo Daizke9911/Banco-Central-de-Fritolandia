@@ -37,7 +37,7 @@
 
                 </tbody>
             </table>
-            {{$movimientos->links()}}
+            <x-pagination :users="$movimientos"/>
         </main>
     </div>
 

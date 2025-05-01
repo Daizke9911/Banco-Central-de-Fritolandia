@@ -14,25 +14,31 @@ h2 {
     text-align: center;
 }
 
-#tabla-movimientos {
+#tabla-movimientos, .tabla-movimientos{
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
 #tabla-movimientos th,
-#tabla-movimientos td {
+#tabla-movimientos td,
+.tabla-movimientos th,
+.tabla-movimientos td {
     padding: 12px 15px;
     border-bottom: 1px solid #ddd;
     text-align: left;
 }
 
-#tabla-movimientos th {
+#tabla-movimientos th,
+.tabla-movimientos th {
     background-color: #f0f0f0;
     font-weight: bold;
 }
 
 #tabla-movimientos tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.tabla-movimientos tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
@@ -60,23 +66,38 @@ h2 {
 }
 
 .pdf-generar{
-    color: #000;
+    color: #ffffff;
     text-decoration: none;
-    background-color: rgb(102, 214, 11);
-    padding: 10px;
+    background-color: rgb(121, 8, 8);
+    padding: 3px 10px;
     border-radius: 10px;
     transition: background-color 0.3s ease;
   }
 
   .pdf-generar:hover{
-    background-color: rgb(82, 139, 34);
-    color: #fff;
+    background-color: rgb(182, 0, 0);
+  }
+
+  .excel-generar{
+    color: #ffffff;
+    text-decoration: none;
+    background-color: rgb(50, 109, 3);
+    padding: 3px 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    border: none;
+  }
+
+  .excel-generar:hover{
+    background-color: rgb(79, 175, 0);
   }
 
 /* Estilos para pantallas más pequeñas */
 @media (max-width: 768px) {
     #tabla-movimientos th,
-    #tabla-movimientos td {
+    #tabla-movimientos td,
+    .tabla-movimientos th,
+    .tabla-movimientos td {
         padding: 8px 10px;
         font-size: 0.9em;
     }
