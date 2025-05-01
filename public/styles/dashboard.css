@@ -38,7 +38,7 @@ body {
 }
 
 .side-menu a:hover {
-    background-color: #495057;
+    background-color: #00000056;
 }
 
 .side-menu a.active{
@@ -49,18 +49,20 @@ body {
 /* Main Content */
 .main-content {
     flex-grow: 1;
-    padding: 20px;
     display: flex;
     flex-direction: column;
 }
 
 header {
+    background-color: #b1b1b1bd;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 20px;
     border-bottom: 1px solid #eee;
     margin-bottom: 20px;
+    margin: 0 0 20px 0;
+    padding: 20px;
 }
 
 header h1 {
@@ -96,6 +98,10 @@ header h1 {
 /* Content Area */
 .content-area {
     flex-grow: 1;
+}
+
+.detalle-container{
+    margin: 20px auto;
 }
 
 .dashboard-section {
@@ -136,3 +142,5 @@ header h1 {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
+
+

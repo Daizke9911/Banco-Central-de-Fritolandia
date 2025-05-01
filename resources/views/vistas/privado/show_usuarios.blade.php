@@ -9,11 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuario {{$infoUser->name}}</title>
     <link rel="stylesheet" href="{{asset('styles/dashboard.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/public/styles/dashboard.css">
     <link rel="stylesheet" href="{{asset('styles/transferir.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/styles/transferir.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/public/styles/transferir.css">
     <link rel="stylesheet" href="{{asset('styles/show_movimientos.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/show_movimientos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/public/show_movimientos.css">
     <x-temas />
 </head>    
 <body>
