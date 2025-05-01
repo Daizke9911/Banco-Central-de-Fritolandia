@@ -59,7 +59,7 @@ h2 {
     background-color: #0056b3;
 }
 
-.pdf{
+.pdf-generar{
     color: #000;
     text-decoration: none;
     background-color: rgb(102, 214, 11);
@@ -68,7 +68,7 @@ h2 {
     transition: background-color 0.3s ease;
   }
 
-  .pdf:hover{
+  .pdf-generar:hover{
     background-color: rgb(82, 139, 34);
     color: #fff;
   }
