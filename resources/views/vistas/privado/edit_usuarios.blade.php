@@ -24,7 +24,9 @@
                     <a class="logout-btn" href="{{route('logout')}}">Cerrar Sesión</a>
                 </div>
             </header>
+
             <x-alertas_bootstrap />
+            
             <div class="container">
                 <form action="{{route('usuarios.update', $infoUser->id)}}" method="POST">
 
