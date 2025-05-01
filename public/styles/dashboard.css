@@ -27,7 +27,7 @@ body {
     text-align: center;
 }
 
-.menu a {
+.side-menu a {
     display: block;
     padding: 10px 15px;
     text-decoration: none;
@@ -37,11 +37,11 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.menu a:hover {
+.side-menu a:hover {
     background-color: #495057;
 }
 
-.menu a.active {
+.side-menu a.active{
     background-color: var(--button-sidebar);
     color: var(--text-color-sidebar);
 }
@@ -100,10 +100,6 @@ header h1 {
 
 .dashboard-section {
     display: none; /* Ocultar todas las secciones por defecto */
-}
-
-.dashboard-section.active {
-    display: block; /* Mostrar la sección activa */
 }
 
 /* Widgets Grid */

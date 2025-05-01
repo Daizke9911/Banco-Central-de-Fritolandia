@@ -38,7 +38,7 @@ class MovimientosController extends Controller
             ->where('cuentaType',$request->cuentaTypeLogin)->first();
         }else{
             //notify()->error('Error','Elija la cuenta a restar');
-            return redirect(route('movimientos.create'));
+            return redirect(route('tranferencia'))->with('error','Elija la cuenta a restar');
         }
         $userDestino = User::where('cedula',$request->cedula)->first();
         $cuentaDestino = Cuentas::where('user_id',$userDestino->id)->where('cuentaType',$request->cuentaType);
@@ -103,7 +103,7 @@ class MovimientosController extends Controller
                         return redirect(route('movimientos.index'))->with('message', 'Transferencia Realizada!');
                     }else{ 
                         //notify()->error('Error','Saldo Insuficiente');
-                        return redirect(route('movimientos.create'));
+                        return redirect(route('tranferencia'))->with('error','Saldo insuficiente');
                     }
                 }elseif($request->cuentaType == 2){
                     $cuentaDestino=$cuentaDestino->first();
@@ -161,20 +161,19 @@ class MovimientosController extends Controller
                         return redirect(route('movimientos.index'))->with('message', 'Transferencia Realizada!');
                     }else{
                        // notify()->error('Error','Saldo Insuficiente');
-                        return redirect(route('movimientos.create'));
-                        return "saldo insuficiente";
+                        return redirect(route('tranferencia'))->with('error','Saldo insuficiente');
                     }
                 }else{
                    // notify()->error('verifique los datos','La Cuenta No Exise');
-                    return redirect(route('movimientos.create'));
+                    return redirect(route('tranferencia'))->with('error','Verifique los datos, la cuenta destinaria no existe');
                 }
             }else{
                // notify()->error('Error','Contraseña Incorrecta');
-                return redirect(route('movimientos.create'));
+                return redirect(route('tranferencia'))->with('error','Contraseña incorrecta');
             }
         }else{
             //notify()->error('Error','No Puedes Transferir a Tus Propias Cuentas');
-            return redirect(route('movimientos.create'));
+            return redirect(route('tranferencia'))->with('error','No se puede transferir a cuentas propias');;
         }
     }
 

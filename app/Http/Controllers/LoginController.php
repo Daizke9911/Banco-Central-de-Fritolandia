@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterRequest;
 use App\Models\Cuentas;
 use App\Models\Roles;
 use App\Models\Tema;
@@ -13,24 +14,7 @@ use Illuminate\Auth\Events\Registered;
 
 class LoginController extends Controller
 {
-    public function register(Request $request){
-
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255', 'unique:'. User::class],
-            'cedula' => ['required', 'numeric', 'min:1000000', 'max:99999999', 'unique:'. User::class],
-            'phone' => ['required', 'numeric', 'min:10000000000', 'max:99999999999', 'unique:'.User::class],
-            'nacimiento' => ['required', 'date'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
-            'pregunta_1' => ['required', 'string', 'max:255'],
-            'respuesta_1' => ['required', 'string', 'max:255'],
-            'pregunta_2' => ['required', 'string', 'max:255'],
-            'respuesta_2' => ['required', 'string', 'max:255'],
-            'pregunta_3' => ['required', 'string', 'max:255'],
-            'respuesta_3' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'string', 'confirmed'],
-            'cuentaType' => ['required']
-        ]);
+    public function register(RegisterRequest $request){
 
         $user = new User();
 

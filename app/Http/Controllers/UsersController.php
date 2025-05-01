@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UsersRequest;
 use App\Models\Cuentas;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,6 +23,7 @@ class UsersController extends Controller
         $mods = User::where('role', 'mod')->get();
 
         $users=User::where('id', '!=', Auth::user()->id)->where('role', '!=', "admin")->where('role', '!=', "mod")->paginate(3);
+        
         //EXCEL
 
         $usersExcel=User::where('id', '!=', Auth::user()->id)->where('role', '!=', "admin")->where('role', '!=', "mod")->get();
@@ -74,21 +76,12 @@ class UsersController extends Controller
         return view('vistas.privado.edit_usuarios', compact('infoUser', 'cuentas'));
     }
 
-    public function update(Request $request, $infoUser){
+    public function update(UsersRequest $request, $infoUser){
         if (! Gate::allows('update', auth()->user())) {
             abort(403, 'No tienes autorización para esta pagina, compre oro');
         }
 
         $user = User::find($infoUser);
-
-        $request->validate([
-            'name' => 'required|max:100',
-            'username' => 'required|max:100',
-            'cedula' => 'required|numeric|min:100000|max:99999999|unique:users,cedula,'.$user->id,
-            'phone' => 'required|numeric|min:10000000000|max:99999999999|unique:users,phone,'.$user->id,
-            'nacimiento' => 'required|date',
-            'email' => 'required|email|unique:users,email,'.$user->id,
-        ]);
         
         if(Hash::check($request->password, Auth::user()->password)){
             
@@ -105,8 +98,12 @@ class UsersController extends Controller
             foreach($cuentas as $cuenta){
                 if($cuenta->cuentaType == 1){
                     $request->validate([
-                        'accountNumberCorriente' => 'required|unique:cuentas,accountNumber,'.$cuenta->id,
+                        'accountNumberCorriente' => 'required|numeric|min:9911000000|max:9911999999|unique:cuentas,accountNumber,'.$cuenta->id,
                         'availableBalanceCorriente' => 'required|numeric'
+                    ],
+                    [
+                        'accountNumberCorriente.min' => 'El numero de cuenta debe ser 10 digitos y comenzar con 9911',
+                        'accountNumberCorriente.max' => 'El numero de cuenta debe ser 10 digitos y comenzar con 9911'
                     ]);
 
                     $cuenta->accountNumber = $request->accountNumberCorriente;
@@ -114,8 +111,12 @@ class UsersController extends Controller
                     $cuenta->save();
                 }else{
                     $request->validate([
-                        'accountNumberAhorro' => 'required|unique:cuentas,accountNumber,'.$cuenta->id,
+                        'accountNumberAhorro' => 'required|numeric|min:9911000000|max:9911999999|unique:cuentas,accountNumber,'.$cuenta->id,
                         'availableBalanceAhorro' => 'required|numeric'
+                    ],
+                    [
+                        'accountNumberAhorro.min' => 'El numero de cuenta debe ser 10 digitos y comenzar con 9911',
+                        'accountNumberAhorro.max' => 'El numero de cuenta debe ser 10 digitos y comenzar con 9911'
                     ]);
 
                     $cuenta->accountNumber = $request->accountNumberAhorro;

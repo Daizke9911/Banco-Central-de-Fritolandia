@@ -25,7 +25,7 @@
             <header>
                 <h1>Información del Usuario</h1>
                 <div class="user-info">
-                    <a class="logout-btn" href="{{route('logout')}}">Cerrar Sesión</a>
+                    <a class="logout-btn" href="{{route('logout')}}"  onclick="localStorage.removeItem('activeSidebarRoute');">Cerrar Sesión</a>
                 </div>
             </header>
 

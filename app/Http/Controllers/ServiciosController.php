@@ -35,6 +35,10 @@ class ServiciosController extends Controller
                     $request->validate([
                         'phone' => 'required|numeric|max:9999999|min:1000000',
                         'monto' => 'required'
+                    ],
+                    [
+                        'phone.min' => 'La cantidad minima es del 7 digitos',
+                        'phone.max' => 'La cantidad maxima es de 7 digitos'
                     ]);
                     $reference = "TLF-".random_int(1,999999999);
                     $IVA = $request->monto * 0.02;

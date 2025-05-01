@@ -33,7 +33,10 @@ class MovimientosRequest extends FormRequest
     public function messages()
     {
         return[
-        '' => ''
+        'cedula.min' => 'La cantidad minima de la cedula es de 7 digitos',
+        'cedula.max' => 'La cantidad maxima de la cedula es de 8 digitos',
+        'phone.min' => 'La cantidad minima del número telefonico es de 11 digitos',
+        'phone.max' => 'La cantidad maxima del número telefonico es de 11 digitos'
         ];
     }
     public function attributes()
