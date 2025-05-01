@@ -1,0 +1,17 @@
+
+    .chart-selector {
+        margin-bottom: 20px;
+    }
+
+    .chart-button {
+        padding: 10px 15px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #f9f9f9;
+    }
+
+    .chart-button.active {
+        background-color: #e0e0e0;
+    }

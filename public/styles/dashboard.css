@@ -119,6 +119,7 @@ header h1 {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    width: 200px;
 }
 
 .widget h3 {
@@ -133,8 +134,11 @@ header h1 {
     color: #007bff;
 }
 
-.widget.chart {
-    /* Estilos adicionales para widgets de gráficos si es necesario */
+.chart{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .boton-eliminar{
