@@ -11,6 +11,17 @@
     <x-temas />
 </head>
 <body>
+    @if (session('message'))
+        <script>
+            Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "{{session('message')}}",
+            showConfirmButton: false,
+            timer: 1500
+            });
+        </script>
+    @endif
     <div class="dashboard-container">
         
         <x-sidebar />  <!--SIDEBAR-->

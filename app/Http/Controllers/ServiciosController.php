@@ -27,7 +27,7 @@ class ServiciosController extends Controller
                 ->where('cuentaType',$request->cuentaTypeLogin2)->first();
             }else{
                 //notify()->error('Error','Elija la cuenta a restar');
-                return redirect(route('servicios.create'));
+                return redirect(route('servicios.create'))->with('error', 'Eliga una cuenta valida');
             }
 
             if(Hash::check($request->password, $userLogin->password)){
@@ -61,10 +61,12 @@ class ServiciosController extends Controller
                     $movimientos->save();
                     $cuentaLogin->save();
 
-                    return redirect(route('movimientos.index'));
+                    return redirect(route('movimientos.index'))->with('message', 'Pago Realizado!');
                 }else{
-                    return redirect(route('servicios.create'));
+                    return redirect(route('servicios.create'))->with('error', 'Saldo insuficiente');
                 }
+            }else{
+                return redirect(route('servicios.create'))->with('error', 'Contraseña incorrecta');
             }
         }elseif($request->operadora_internet){
             $userLogin= Auth::user();
@@ -77,7 +79,7 @@ class ServiciosController extends Controller
                 ->where('cuentaType',$request->cuentaTypeLogin2)->first();
             }else{
                 //notify()->error('Error','Elija la cuenta a restar');
-                return redirect(route('servicios.create'));
+                return redirect(route('servicios.create'))->with('error', 'Eliga una cuenta valida');
             }
 
             if(Hash::check($request->password, $userLogin->password)){
@@ -109,10 +111,12 @@ class ServiciosController extends Controller
                     $movimientos->save();
                     $cuentaLogin->save();
 
-                    return redirect(route('movimientos.index'));
+                    return redirect(route('movimientos.index'))->with('message', 'Pago Realizado!');;
                 }else{
-                    return redirect(route('servicios.create'));
+                    return redirect(route('servicios.create'))->with('error', 'Saldo insuficiente');
                 }
+            }else{
+                return redirect(route('servicios.create'))->with('error', 'Contraseña incorrecta');
             }
         }elseif($request->servicio_publico){
             $userLogin= Auth::user();
@@ -125,7 +129,7 @@ class ServiciosController extends Controller
                 ->where('cuentaType',$request->cuentaTypeLogin2)->first();
             }else{
                 //notify()->error('Error','Elija la cuenta a restar');
-                return redirect(route('servicios.create'));
+                return redirect(route('servicios.create'))->with('error', 'Eliga una cuenta valida');
             }
 
             if(Hash::check($request->password, $userLogin->password)){
@@ -157,13 +161,15 @@ class ServiciosController extends Controller
                     $movimientos->save();
                     $cuentaLogin->save();
 
-                    return redirect(route('movimientos.index'));
+                    return redirect(route('movimientos.index'))->with('message', 'Pago Realizado!');;
                 }else{
-                    return redirect(route('servicios.create'));
+                    return redirect(route('servicios.create'))->with('error', 'Saldo insuficiente');
                 }
+            }else{
+                return redirect(route('servicios.create'))->with('error', 'Contraseña incorrecta');
             }
         }else{
-            return redirect(route('servicios.create'));
+            return redirect(route('servicios.create'))->with('error', 'Ups. Algo salio mal');
         }
     }
 }

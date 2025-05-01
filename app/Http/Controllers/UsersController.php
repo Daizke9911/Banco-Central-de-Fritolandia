@@ -124,9 +124,9 @@ class UsersController extends Controller
                 }
             }
             
-            return redirect(route('usuarios.index'));
+            return redirect(route('usuarios.index'))->with('message', 'Editado con Exito!');
         }else{
-            return redirect(route('usuarios.edit', $infoUser));
+            return redirect(route('usuarios.edit', $infoUser))->with('error', 'Contraseña Incorrecta, intente de nuevo');
         }
         
     }

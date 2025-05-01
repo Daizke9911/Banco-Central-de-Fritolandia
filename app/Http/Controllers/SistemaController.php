@@ -32,7 +32,7 @@ class SistemaController extends Controller
                 if(Hash::check($request->respuesta_3, $user->respuesta_3)){
 
                     $request->validate([
-                        'password' => ['required', 'string', 'confirmed']
+                        'password' => ['required', 'string', 'confirmed', 'max: 255']
                     ]);
                     $user->password = Hash::make($request->password);
                     $user->save();
@@ -40,13 +40,13 @@ class SistemaController extends Controller
                     return back()->with('success', 'La contraseña cambio con exito!');
                 }else{
                     
-                    return back()->withErrors(['security' => 'Las respuestas 3 de seguridad es incorrecta.'])->withInput();
+                    return back()->with(['error' => 'Las respuestas 3 de seguridad es incorrecta.'])->withInput();
                 }
             }else{
-                return back()->withErrors(['security' => 'Las respuestas 2 de seguridad es incorrecta.'])->withInput();
+                return back()->with(['error' => 'Las respuestas 2 de seguridad es incorrecta.'])->withInput();
             }
         }else{
-            return back()->withErrors(['security' => 'Las respuestas 1 de seguridad es incorrecta.'])->withInput();
+            return back()->with(['error' => 'Las respuestas 1 de seguridad es incorrecta.'])->withInput();
         }
     }
 

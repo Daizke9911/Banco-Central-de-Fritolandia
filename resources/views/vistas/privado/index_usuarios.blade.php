@@ -14,6 +14,9 @@
     <x-temas />
 </head>
 <body>
+
+    <x-alertas /> <!--ALERTAS-->
+
     <div class="dashboard-container">
         
         <x-sidebar />  <!--SIDEBAR-->
@@ -70,15 +73,13 @@
                                 <div class="dropdown">
                                     <button class="dropdown-button">Opciones</button>
                                     <div class="dropdown-content">
-                                    <a href="{{route('usuarios.show', $mod->id)}}">Más información</a>
-                                    <a href="{{route('usuarios.edit', $mod->id)}}">Modificar</a>
-                                    <a class="a-no">
-                                        <form action="{{route('usuarios.destroy', $mod->id)}}" method="POST">
+                                        <a href="{{route('usuarios.show', $mod->id)}}">Más información</a>
+                                        <a href="{{route('usuarios.edit', $mod->id)}}">Modificar</a>
+                                        <form id="deleteForm{{$mod->id}}" action="{{route('usuarios.destroy', $mod->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="boton-eliminar">Eliminar</button>
-                                        </form>    
-                                    </a>
+                                            <button type="button" class="boton-eliminar" onclick="confirmDelete('{{$mod->username}}', 'deleteForm{{$mod->id}}')">Eliminar</button>
+                                        </form>
                                     </div>
                                 </div>
                             </td>
@@ -115,17 +116,15 @@
                                 <div class="dropdown">
                                     <button class="dropdown-button">Opciones</button>
                                     <div class="dropdown-content">
-                                    <a href="{{route('usuarios.show', $user->id)}}">Más información</a>
-                                    <a href="{{route('usuarios.edit', $user->id)}}">Modificar</a>
-                                    @if (Auth::user()->role == "admin")
-                                        <a class="a-no">
-                                            <form action="{{route('usuarios.destroy', $user->id)}}" method="POST">
+                                        <a href="{{route('usuarios.show', $user->id)}}">Más información</a>
+                                        <a href="{{route('usuarios.edit', $user->id)}}">Modificar</a>
+                                        @if (Auth::user()->role == "admin")
+                                            <form id="deleteForm{{$user->id}}" action="{{route('usuarios.destroy', $user->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="boton-eliminar">Eliminar</button>
+                                                <button type="button" class="boton-eliminar" onclick="confirmDelete('{{$user->username}}', 'deleteForm{{$user->id}}')">Eliminar</button>
                                             </form>    
-                                        </a>
-                                    @endif
+                                        @endif
                                     
                                     </div>
                                 </div>
@@ -158,7 +157,38 @@
 
             // Descargar el archivo
             XLSX.writeFile(wb, filename);
+
+            Swal.fire({
+            title: "¡Descarga Exitosa!",
+            text: `El Excel se ha descargado correctamente.`,
+            icon: "success",
+            confirmButtonText: "Aceptar"
+        });
         }
+
+        //sweetalert
+
+        function confirmDelete(username, formId) {
+        Swal.fire({
+            title: `¿Estás seguro de eliminar al usuario ${username}?`,
+            text: "¡No podrás revertir esto!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Sí",
+            cancelButtonText: "Cancelar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById(formId).submit(); // Envía el formulario si el usuario confirma
+                Swal.fire({
+                    title: "¡Eliminado!",
+                    text: `El usuario ${username} ha sido eliminado.`,
+                    icon: "success"
+                });
+            }
+        });
+    }
     </script>
 </body>
 </html>

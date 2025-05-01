@@ -17,8 +17,8 @@ class ForgotPasswordController extends Controller
     public function verificar_usuario(Request $request)
     {
         $request->validate([
-            'username' => 'required|string',
-            'cedula' => 'required|string',
+            'username' => 'required|string|max:255|exists:users,username',
+            'cedula' => 'required|numeric|min:1000000|max:99999999|exists:users,cedula',
         ]);
 
         $user = User::where('username', $request->username)
@@ -26,7 +26,7 @@ class ForgotPasswordController extends Controller
                     ->first();
 
         if (!$user) {
-            return back()->withErrors(['credentials' => 'El usuario no existe o los datos estan erroneos'])->withInput();
+            return back()->with(['credentials' => 'El usuario no existe o los datos estan erroneos'])->withInput();
         }
 
         // Almacenar el ID del usuario en la sesión para los siguientes pasos
@@ -38,7 +38,7 @@ class ForgotPasswordController extends Controller
     public function vista_preguntas_seguridad()
     {
         if (!session()->has('password_recover_user_id')) {
-            return redirect()->route('vista_verificar_usuario')->withErrors(['expired' => 'La sesión de recuperación de contraseña ha expirado. Por favor, inténtalo de nuevo.']);
+            return redirect()->route('vista_verificar_usuario')->with(['expired' => 'La sesión de recuperación de contraseña ha expirado. Por favor, inténtalo de nuevo.']);
         }
 
         $user = User::findOrFail(session('password_recover_user_id')); 
@@ -50,7 +50,7 @@ class ForgotPasswordController extends Controller
     {
         // Verificar si el ID del usuario está en la sesión
         if (!session()->has('password_recover_user_id')) {
-            return redirect()->route('vista_verificar_usuario')->withErrors(['expired' => 'La sesión de recuperación de contraseña ha expirado. Por favor, inténtalo de nuevo.']);
+            return redirect()->route('vista_verificar_usuario')->with(['expired' => 'La sesión de recuperación de contraseña ha expirado. Por favor, inténtalo de nuevo.']);
         }
 
         $user = User::findOrFail(session('password_recover_user_id'));
@@ -75,7 +75,7 @@ class ForgotPasswordController extends Controller
     {
         // Verificar si el ID del usuario está en la sesión
         if (!session()->has('password_recover_user_id')) {
-            return redirect()->route('password.recover.username')->withErrors(['expired' => 'La sesión de recuperación de contraseña ha expirado. Por favor, inténtalo de nuevo.']);
+            return redirect()->route('password.recover.username')->with(['expired' => 'La sesión de recuperación de contraseña ha expirado. Por favor, inténtalo de nuevo.']);
         }
 
         return view('recuperar_contrasena.cambiar_contrasena');
@@ -85,7 +85,7 @@ class ForgotPasswordController extends Controller
     {
         // Verificar si el ID del usuario está en la sesión
         if (!session()->has('password_recover_user_id')) {
-            return redirect()->route('vista_verificar_usuario')->withErrors(['expired' => 'La sesión de recuperación de contraseña ha expirado. Por favor, inténtalo de nuevo.']);
+            return redirect()->route('vista_verificar_usuario')->with(['expired' => 'La sesión de recuperación de contraseña ha expirado. Por favor, inténtalo de nuevo.']);
         }
 
         $request->validate([

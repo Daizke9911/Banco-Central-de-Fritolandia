@@ -15,8 +15,10 @@
 <body>
     <div class="dashboard-container">
 
-        <x-sidebar />  <!--SIDEBAR-->
+        
 
+        <x-sidebar />  <!--SIDEBAR-->
+        
         <main class="main-content">
             <header>
                 <h1>Configuraciones del Sistema</h1>
@@ -28,22 +30,11 @@
 
                 <x-botones_sistema />   <!--BOTONES-->
 
-                <div class="detalle-container" style="margin: 50px auto">
+                
+
+                <div class="detalle-container" style="margin: 50px auto;">
+                    <x-alertas_bootstrap />
                     <div class="card-body">
-                        @if (session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
 
                         <form method="POST" action="{{ route('validar_cambio_contrasena_sistema') }}">
                             @csrf
@@ -52,30 +43,18 @@
                             <h3>Preguntas de Seguridad</h3>
                                 <div class="mb-3">
                                     <label for="respuesta_1" class="form-label">{{ $user->pregunta_1}}:</label>
-                                    <input id="respuesta_1" type="text" class="form-control @error('answer_{{ $user->id }}') is-invalid @enderror" name="respuesta_1" placeholder="Respuesta a la pregunta 1" required>
-                                    @error('respuesta_1')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    <input id="respuesta_1" type="text" class="form-control @error('respuesta_1') is-invalid @enderror" name="respuesta_1" placeholder="Respuesta a la pregunta 1" required>
+                                    
                                 </div>
                                 <div class="mb-3">
                                     <label for="respuesta_2" class="form-label">{{ $user->pregunta_2}}:</label>
-                                    <input id="respuesta_2" type="text" class="form-control @error('answer_{{ $user->id }}') is-invalid @enderror" name="respuesta_2" placeholder="Respuesta a la pregunta 2" required>
-                                    @error('respuesta_2')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    <input id="respuesta_2" type="text" class="form-control @error('respuesta_2') is-invalid @enderror" name="respuesta_2" placeholder="Respuesta a la pregunta 2" required>
+                                    
                                 </div>
                                 <div class="mb-3">
                                     <label for="respuesta_3" class="form-label">{{ $user->pregunta_3 }}:</label>
-                                    <input id="respuesta_3" type="text" class="form-control @error('answer_{{ $user->id }}') is-invalid @enderror" name="respuesta_3" placeholder="Respuesta a la pregunta 3" required>
-                                    @error('respuesta_3')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    <input id="respuesta_3" type="text" class="form-control @error('respuesta_3') is-invalid @enderror" name="respuesta_3" placeholder="Respuesta a la pregunta 3" required>
+                                    
                                 </div>
 
                                 <hr style="margin: 30px 0">
@@ -84,16 +63,12 @@
                                 <div class="mb-3">
                                     <label for="password" class="form-label">{{ __('Nueva Contraseña') }}</label>
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Nueva contraseña">
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    
                                 </div>
     
                                 <div class="mb-3">
                                     <label for="password-confirm" class="form-label">{{ __('Confirmar Nueva Contraseña') }}</label>
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Repita la contraseña">
+                                    <input id="password-confirm" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password" placeholder="Repita la contraseña">
                                 </div>
 
                             <div class="d-grid gap-2">

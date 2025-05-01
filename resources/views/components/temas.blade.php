@@ -4,5 +4,6 @@
     window.textColorSidebar = "{{ Auth::user()->tema->text_color_sidebar ?? null }}";
     window.backgraund = "{{ Auth::user()->tema->backgraund ?? null }}";
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{asset('js/theme.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/gh/Daizke9911/Banco-Central-de-Fritolandia@master/public/js/theme.js"></script>

@@ -31,6 +31,8 @@
 <body>
     <div class="dashboard-container">
 
+        <x-alertas />
+
         <x-sidebar />  <!--SIDEBAR-->
 
         <main class="main-content">
@@ -46,20 +48,6 @@
 
                 <div class="detalle-container" style="margin: 50px auto">
                     <div class="card-body">
-                        @if (session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
 
                         <h3>Eliga un color</h3>
                         <div id="paleta-de-colores">

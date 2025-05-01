@@ -75,7 +75,7 @@ class LoginController extends Controller
 
         event(new Registered($user));
         
-        return redirect(route('login'));
+        return redirect(route('login'))->with('error','');
     }
 
     public function login(Request $request){
@@ -91,7 +91,7 @@ class LoginController extends Controller
 
             return redirect()->intended(route('dashboard'));
         }else{
-            return redirect(route('login'));
+            return redirect(route('login'))->with('error', 'Usuario o contraseña no existe, intente de nuevo');
         }
     }
 

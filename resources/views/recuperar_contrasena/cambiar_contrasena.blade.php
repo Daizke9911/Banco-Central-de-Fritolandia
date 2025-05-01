@@ -10,21 +10,14 @@
 <body>
     <div class="container">
 
+        <x-alertas_bootstrap />
+        
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header"><h3>{{ __('Recuperar Contraseña') }} - Paso 3</h3></div>
 
                     <div class="card-body">
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
 
                         <form method="POST" action="{{ route('verificar_cambiar_contrasena') }}">
                             @csrf
@@ -32,11 +25,7 @@
                             <div class="mb-3">
                                 <label for="password" class="form-label">{{ __('Nueva Contraseña') }}</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                
                             </div>
 
                             <div class="mb-3">

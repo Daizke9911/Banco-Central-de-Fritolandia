@@ -28,6 +28,9 @@
     <x-temas />
 </head>
 <body>
+
+    <x-alertas />
+    
     <div class="dashboard-container">
         
         <x-sidebar />  <!--SIDEBAR-->

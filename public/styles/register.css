@@ -2,10 +2,25 @@ body {
     font-family: sans-serif;
     background-color: #f4f4f4;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+}
+
+.alert-dismissible {
+    position: absolute;
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    z-index: 1000; /* Asegura que la alerta esté por encima de otros elementos */
+    /* Otros estilos para tu alerta */
+    width: 60%;
+}
+
+.btn-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    /* Estilos para el botón de cierre */
 }
 
 .container {
@@ -15,6 +30,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     width: 80%;
     max-width: 800px;
+    margin: 50px;
 }
 
 h1 {

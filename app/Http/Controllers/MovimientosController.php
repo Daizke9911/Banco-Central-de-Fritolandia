@@ -100,7 +100,7 @@ class MovimientosController extends Controller
                         $cuentaLogin->save();
 
                         //notify()->success('','Transferencia Realizada!');
-                        return redirect(route('movimientos.index'));
+                        return redirect(route('movimientos.index'))->with('message', 'Transferencia Realizada!');
                     }else{ 
                         //notify()->error('Error','Saldo Insuficiente');
                         return redirect(route('movimientos.create'));
@@ -158,7 +158,7 @@ class MovimientosController extends Controller
                         $cuentaLogin->save();
 
                         //notify()->success('','Transferencia Realizada!');
-                        return redirect(route('movimientos.index'));
+                        return redirect(route('movimientos.index'))->with('message', 'Transferencia Realizada!');
                     }else{
                        // notify()->error('Error','Saldo Insuficiente');
                         return redirect(route('movimientos.create'));
