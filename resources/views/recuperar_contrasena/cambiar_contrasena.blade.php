@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ __('Recuperar Contraseña') }} - Paso 3</title>
     <link rel="stylesheet" href="{{asset('styles/register.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/register.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/registerDos.css">
 </head>
 <body>
     <div class="container">
 
         <x-alertas_bootstrap />
         
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
                     <div class="card-header"><h3>{{ __('Recuperar Contraseña') }} - Paso 3</h3></div>
 
                     <div class="card-body">
@@ -38,9 +35,6 @@
                             </div>
                         </form>
                     </div>
-                </div>
-            </div>
-        </div>
 
          
     </div>
