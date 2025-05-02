@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{asset('styles/dashboard.css')}}">
     <link rel="stylesheet" href="{{asset('styles/create_servicios.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/create_servicios.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/dashboardDos.css">
     <x-temas />
 </head>
 <body>
