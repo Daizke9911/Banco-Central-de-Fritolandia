@@ -73,7 +73,7 @@
                                     <option value="">Seleccionar tipo de cuenta</option>
                                     <option value="1">Cuenta Corriente</option>
                                     <option value="2">Cuenta de Ahorro</option>
-                                </select>''
+                                </select>
                             </div>
                 
                             <div class="form-group">
