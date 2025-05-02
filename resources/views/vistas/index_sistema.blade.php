@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema - Información Personal</title>
     <link rel="stylesheet" href="{{asset('styles/show_movimientos.css')}}">
-    <<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/show_movimientos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/show_movimientos.css">
     <link rel="stylesheet" href="{{asset('styles/dashboard.css')}}">
-    <<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/dashboard.css">
     <link rel="stylesheet" href="{{asset('styles/index_sistema.css')}}">
-    <<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/index_sistema.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/index_sistema.css">
 
     <x-temas />
 </head>
@@ -17,7 +17,6 @@
     <div class="dashboard-container">
 
         <x-sidebar />  <!--SIDEBAR-->
-
         <main class="main-content">
             <header>
                 <h1>Configuraciones del Sistema</h1>
@@ -25,6 +24,7 @@
                     <a class="logout-btn" href="{{route('logout')}}" onclick="localStorage.removeItem('activeSidebarRoute');">Cerrar Sesión</a>
                 </div>
             </header>
+
             <div class="content-area">
 
                 <x-botones_sistema />   <!--BOTONES-->
@@ -75,6 +75,7 @@
                     
                 </div>
             </div>
+            
 
             
         </main>

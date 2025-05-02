@@ -24,26 +24,32 @@
                 </div>
             </header>
 
-            <x-alertas_bootstrap />
-            
-            <div class="pagar-servicio-container" id="pagarServicioContainer" data-cuentas="{{ json_encode($cuentasLogin) }}">
+            <div class="content-area">
 
-    <h2>Pagar Servicio</h2>
+                <x-alertas_bootstrap />
+                
+                <div class="pagar-servicio-container" id="pagarServicioContainer" data-cuentas="{{ json_encode($cuentasLogin) }}">
 
-    <div class="seleccion-servicio">
-        <h3>Seleccione el Servicio a Pagar:</h3>
-        <p>Toda transacción tiene un interes del 2%</p>
-        <select id="servicio-seleccionado">
-            <option value="">-- Seleccionar --</option>
-            <option value="telefonia">Pago de Teléfonia Movil</option>
-            <option value="internet">Pago de Internet</option>
-            <option value="servPublic">Servicios Publicos</option>
-        </select>
+                    <h2>Pago de Servicios</h2>
+
+                    <div class="seleccion-servicio">
+                        <h3>Seleccione el Servicio a Pagar:</h3>
+                        <p>Toda transacción tiene un interes del 2%</p>
+                        <select id="servicio-seleccionado">
+                            <option value="">-- Seleccionar --</option>
+                            <option value="telefonia">Pago de Teléfonia Movil</option>
+                            <option value="internet">Pago de Internet</option>
+                            <option value="servPublic">Servicios Publicos</option>
+                        </select>
+                    </div>
+
+                    <div id="formulario-servicio" class="formulario-servicio oculto">
+                        <!--CONTENIDO DE LOS FORMULARIOS-->
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
-
-    <div id="formulario-servicio" class="formulario-servicio oculto">
-    </div>
-</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

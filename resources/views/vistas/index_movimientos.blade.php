@@ -34,21 +34,24 @@
                 </div>
             </header>
 
-            <table id="tabla-movimientos">
-                <thead>
-                    <tr>
-                        <th>Fecha</th>
-                        <th>Referencia</th>
-                        <th>Monto (Bs)</th>
-                        <th>Concepto</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="tbody-movimientos">
+            <div class="content-area">
 
-                </tbody>
-            </table>
-            <x-pagination :users="$movimientos"/>
+                <table id="tabla-movimientos">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Referencia</th>
+                            <th>Monto (Bs)</th>
+                            <th>Concepto</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-movimientos">
+
+                    </tbody>
+                </table>
+                <x-pagination :users="$movimientos"/>
+            </div>
         </main>
     </div>
 

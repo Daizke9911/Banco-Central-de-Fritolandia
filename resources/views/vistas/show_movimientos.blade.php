@@ -43,43 +43,46 @@
                 </div>
             </header>
 
-            <div class="detalle-container">
-                <h2>Detalle de Transferencia</h2>
-                <div class="info-group">
-                    <label>Referencia:</label>
-                    <span id="reference"></span>
-                </div>
-                <div class="info-group">
-                    <label>Concepto:</label>
-                    <span id="concepto"></span>
-                </div>
-                <div class="info-group">
-                    <label>Monto de la Operación:</label>
-                    <span id="montoOperacion"></span>
-                </div>
-                <div class="info-group monto">
-                    <label>Saldo Total:</label>
-                    <span id="saldoTotal"></span>
-                </div>
-                <div class="info-group">
-                    <label>Tu Cuenta Afectada:</label>
-                    <span id="cuentaAfectada"></span>
-                </div>
-                <div class="info-group">
-                    <label>Cuenta Involucrada:</label>
-                    <span id="cuentaInvolucrada"></span>
-                </div>
-                <div class="info-group">
-                    <label>Fecha y Hora:</label>
-                    <span id="fecha-hora-transferencia"></span>
-                </div>
-                <div class="acciones">
-                    <form action="{{route('pdf_movimientos', ['id' => $movimientos->id])}}" method="GET">
-                        @csrf
-                        <button class="descargar-pdf-button" type="submit">Descargar PDF</button>
-                    </form>
-                    
-                    <button class="volver-button" scr="{{route('movimientos.index')}}">Volver</button>
+            <div class="content-area">
+
+                <div class="detalle-container">
+                    <h2>Detalle de Transferencia</h2>
+                    <div class="info-group">
+                        <label>Referencia:</label>
+                        <span id="reference"></span>
+                    </div>
+                    <div class="info-group">
+                        <label>Concepto:</label>
+                        <span id="concepto"></span>
+                    </div>
+                    <div class="info-group">
+                        <label>Monto de la Operación:</label>
+                        <span id="montoOperacion"></span>
+                    </div>
+                    <div class="info-group monto">
+                        <label>Saldo Total:</label>
+                        <span id="saldoTotal"></span>
+                    </div>
+                    <div class="info-group">
+                        <label>Tu Cuenta Afectada:</label>
+                        <span id="cuentaAfectada"></span>
+                    </div>
+                    <div class="info-group">
+                        <label>Cuenta Involucrada:</label>
+                        <span id="cuentaInvolucrada"></span>
+                    </div>
+                    <div class="info-group">
+                        <label>Fecha y Hora:</label>
+                        <span id="fecha-hora-transferencia"></span>
+                    </div>
+                    <div class="acciones">
+                        <form action="{{route('pdf_movimientos', ['id' => $movimientos->id])}}" method="GET">
+                            @csrf
+                            <button class="descargar-pdf-button" type="submit">Descargar PDF</button>
+                        </form>
+                        
+                        <button class="volver-button" scr="{{route('movimientos.index')}}">Volver</button>
+                    </div>
                 </div>
             </div>
         </main>

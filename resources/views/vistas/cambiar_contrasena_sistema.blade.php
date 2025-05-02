@@ -30,8 +30,6 @@
 
                 <x-botones_sistema />   <!--BOTONES-->
 
-                
-
                 <div class="detalle-container" style="margin: 50px auto;">
                     <x-alertas_bootstrap />
                     <div class="card-body">
@@ -83,5 +81,5 @@
             
         </main>
     </div>
-    </body>
+</body>
 </html>

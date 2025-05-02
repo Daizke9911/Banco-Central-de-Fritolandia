@@ -28,112 +28,115 @@
                     <a class="logout-btn" href="{{route('logout')}}"  onclick="localStorage.removeItem('activeSidebarRoute');">Cerrar Sesión</a>
                 </div>
             </header>
+
+            <div class="content-area">
             
-            <table id="tabla-movimientos">
-                <thead>
-                    <tr>
-                        <th>MAXIMA AUTORIDAD</th>
-                        <th></th>
-                        <th></th>
-                        @if (Auth::user()->role == "admin")
-                            <th></th>
-                        @endif
-                    </tr>
-                </thead>
-                <tbody id="tbody-movimientos">
-                    @foreach($admins as $admin)
+                <table id="tabla-movimientos">
+                    <thead>
                         <tr>
-                            <td>{{$admin->name}}</td>
-                            <td>{{$admin->email}}</td>
-                            <td>{{$admin->role}}</td>
+                            <th>MAXIMA AUTORIDAD</th>
+                            <th></th>
+                            <th></th>
                             @if (Auth::user()->role == "admin")
-                                <td></td>
+                                <th></th>
                             @endif
                         </tr>
-                    @endforeach
-                </tbody>
-                <thead>
-                    <tr>
-                        <th>Moderadores</th>
-                        <th></th>
-                        <th></th>
-                        @if (Auth::user()->role == "admin")
+                    </thead>
+                    <tbody id="tbody-movimientos">
+                        @foreach($admins as $admin)
+                            <tr>
+                                <td>{{$admin->name}}</td>
+                                <td>{{$admin->email}}</td>
+                                <td>{{$admin->role}}</td>
+                                @if (Auth::user()->role == "admin")
+                                    <td></td>
+                                @endif
+                            </tr>
+                        @endforeach
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th>Moderadores</th>
                             <th></th>
-                        @endif
-                    </tr>
-                </thead>
-                <tbody id="tbody-movimientos">
-                    @foreach($mods as $mod)
-                        <tr>
-                            <td>{{$mod->name}}</td>
-                            <td>{{$mod->email}}</td>
-                            <td>{{$mod->role}}</td>
+                            <th></th>
                             @if (Auth::user()->role == "admin")
-                            <td>
-                                <div class="dropdown">
-                                    <button class="dropdown-button">Opciones</button>
-                                    <div class="dropdown-content">
-                                        <a href="{{route('usuarios.show', $mod->id)}}">Más información</a>
-                                        <a href="{{route('usuarios.edit', $mod->id)}}">Modificar</a>
-                                        <form id="deleteForm{{$mod->id}}" action="{{route('usuarios.destroy', $mod->id)}}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="button" class="boton-eliminar" onclick="confirmDelete('{{$mod->username}}', 'deleteForm{{$mod->id}}')">Eliminar</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </td>
+                                <th></th>
                             @endif
-                            
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            
-            <table id="miTablaDeDatos" class="tabla-movimientos">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Nombre de Usuario</th>
-                        <th>Contacto</th>
-                        <th>
-                            <a href="{{route('pdf')}}" class="pdf-generar">PDF</a>
-                            @if (Auth::user()->role == "admin")
-                                <button onclick="exportAllUsersFromData()" class="excel-generar">EXCEL</button>
-                            @endif
-                        </th>
-                    </tr>
-                </thead>
-                <tbody id="tbody-movimientos">
-                    @foreach ($users as $user)
-                        <tr>
-                            <td>{{$user->id}}</td>
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->username}}</td>
-                            <td>{{$user->phone}}</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="dropdown-button">Opciones</button>
-                                    <div class="dropdown-content">
-                                        <a href="{{route('usuarios.show', $user->id)}}">Más información</a>
-                                        <a href="{{route('usuarios.edit', $user->id)}}">Modificar</a>
-                                        @if (Auth::user()->role == "admin")
-                                            <form id="deleteForm{{$user->id}}" action="{{route('usuarios.destroy', $user->id)}}" method="POST">
+                    </thead>
+                    <tbody id="tbody-movimientos">
+                        @foreach($mods as $mod)
+                            <tr>
+                                <td>{{$mod->name}}</td>
+                                <td>{{$mod->email}}</td>
+                                <td>{{$mod->role}}</td>
+                                @if (Auth::user()->role == "admin")
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="dropdown-button">Opciones</button>
+                                        <div class="dropdown-content">
+                                            <a href="{{route('usuarios.show', $mod->id)}}">Más información</a>
+                                            <a href="{{route('usuarios.edit', $mod->id)}}">Modificar</a>
+                                            <form id="deleteForm{{$mod->id}}" action="{{route('usuarios.destroy', $mod->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="button" class="boton-eliminar" onclick="confirmDelete('{{$user->username}}', 'deleteForm{{$user->id}}')">Eliminar</button>
-                                            </form>    
-                                        @endif
-                                    
+                                                <button type="button" class="boton-eliminar" onclick="confirmDelete('{{$mod->username}}', 'deleteForm{{$mod->id}}')">Eliminar</button>
+                                            </form>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
+                                </td>
+                                @endif
+                                
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                
+                <table id="miTablaDeDatos" class="tabla-movimientos">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Nombre de Usuario</th>
+                            <th>Contacto</th>
+                            <th>
+                                <a href="{{route('pdf')}}" class="pdf-generar">PDF</a>
+                                @if (Auth::user()->role == "admin")
+                                    <button onclick="exportAllUsersFromData()" class="excel-generar">EXCEL</button>
+                                @endif
+                            </th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            <x-pagination :users="$users"/>
+                    </thead>
+                    <tbody id="tbody-movimientos">
+                        @foreach ($users as $user)
+                            <tr>
+                                <td>{{$user->id}}</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->username}}</td>
+                                <td>{{$user->phone}}</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="dropdown-button">Opciones</button>
+                                        <div class="dropdown-content">
+                                            <a href="{{route('usuarios.show', $user->id)}}">Más información</a>
+                                            <a href="{{route('usuarios.edit', $user->id)}}">Modificar</a>
+                                            @if (Auth::user()->role == "admin")
+                                                <form id="deleteForm{{$user->id}}" action="{{route('usuarios.destroy', $user->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="button" class="boton-eliminar" onclick="confirmDelete('{{$user->username}}', 'deleteForm{{$user->id}}')">Eliminar</button>
+                                                </form>    
+                                            @endif
+                                        
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <x-pagination :users="$users"/>
+            </div>
         </main>
     </div>
 <script>

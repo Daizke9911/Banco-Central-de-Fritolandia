@@ -29,53 +29,56 @@
                 </div>
             </header>
 
-            <div class="detalle-container">
-                <h2>Detalles del Usuario</h2>
-                <div class="info-group">
-                    <label>Nombre Completo:</label>
-                    <span id="name">{{$infoUser->name}}</span>
-                </div>
-                <div class="info-group">
-                    <label>Cédula:</label>
-                    <span id="cedula">{{$infoUser->cedula}}</span>
-                </div>
-                <div class="info-group">
-                    <label>Número Teléfonico:</label>
-                    <span id="phone">{{$infoUser->phone}}</span>
-                </div>
-                <div class="info-group">
-                    <label>Nacimiento:</label>
-                    <span id="nacimientos">{{\Carbon\Carbon::parse($infoUser->nacimiento)->format('d/m/Y')}}</span>
-                </div>
-                <div class="info-group">
-                    <label>Correo:</label>
-                    <span id="email">{{$infoUser->email}}</span>
-                </div>
-                @foreach ($cuentas as $cuenta)
-                    @if ($cuenta->cuentaType == 1)
-                        <div class="info-group">
-                            <label>Cuenta Corriente:</label>
-                            <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
-                        </div>
-                        <div class="info-group monto">
-                            <label>Saldo:</label>
-                            <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}}</span>
-                        </div>
-                    @else
-                        <div class="info-group">
-                            <label>Cuenta Ahorro:</label>
-                            <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
-                        </div>
-                        <div class="info-group monto">
-                            <label>Saldo:</label>
-                            <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}}</span>
-                        </div>
-                    @endif
-                @endforeach
-                
-                
-                <div class="acciones">
-                    <a class="volver-a" href="{{route('usuarios.index')}}">Volver</a>
+            <div class="content-area">
+
+                <div class="detalle-container">
+                    <h2>Detalles del Usuario</h2>
+                    <div class="info-group">
+                        <label>Nombre Completo:</label>
+                        <span id="name">{{$infoUser->name}}</span>
+                    </div>
+                    <div class="info-group">
+                        <label>Cédula:</label>
+                        <span id="cedula">{{$infoUser->cedula}}</span>
+                    </div>
+                    <div class="info-group">
+                        <label>Número Teléfonico:</label>
+                        <span id="phone">{{$infoUser->phone}}</span>
+                    </div>
+                    <div class="info-group">
+                        <label>Nacimiento:</label>
+                        <span id="nacimientos">{{\Carbon\Carbon::parse($infoUser->nacimiento)->format('d/m/Y')}}</span>
+                    </div>
+                    <div class="info-group">
+                        <label>Correo:</label>
+                        <span id="email">{{$infoUser->email}}</span>
+                    </div>
+                    @foreach ($cuentas as $cuenta)
+                        @if ($cuenta->cuentaType == 1)
+                            <div class="info-group">
+                                <label>Cuenta Corriente:</label>
+                                <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
+                            </div>
+                            <div class="info-group monto">
+                                <label>Saldo:</label>
+                                <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}}</span>
+                            </div>
+                        @else
+                            <div class="info-group">
+                                <label>Cuenta Ahorro:</label>
+                                <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
+                            </div>
+                            <div class="info-group monto">
+                                <label>Saldo:</label>
+                                <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}}</span>
+                            </div>
+                        @endif
+                    @endforeach
+                    
+                    
+                    <div class="acciones">
+                        <a class="volver-a" href="{{route('usuarios.index')}}">Volver</a>
+                    </div>
                 </div>
             </div>
         </main>

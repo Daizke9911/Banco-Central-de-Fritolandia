@@ -98,6 +98,7 @@ header h1 {
 /* Content Area */
 .content-area {
     flex-grow: 1;
+    margin: 20px;
 }
 
 .detalle-container{
