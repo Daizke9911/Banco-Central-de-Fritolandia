@@ -23,8 +23,8 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255', 'unique:'. User::class],
+            'name' => ['required', 'string', 'min:4', 'max:255'],
+            'username' => ['required', 'string', 'min:6','max:255', 'unique:'. User::class],
             'cedula' => ['required', 'numeric', 'min:1000000', 'max:99999999', 'unique:'. User::class],
             'phone' => ['required', 'numeric', 'min:10000000000', 'max:99999999999', 'unique:'.User::class],
             'nacimiento' => ['required', 'date'],
@@ -35,7 +35,7 @@ class RegisterRequest extends FormRequest
             'respuesta_2' => ['required', 'string', 'max:255'],
             'pregunta_3' => ['required', 'string', 'max:255'],
             'respuesta_3' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'string', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'max:255', 'confirmed'],
             'cuentaType' => ['required']
         ];
     }

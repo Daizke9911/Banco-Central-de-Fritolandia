@@ -32,7 +32,7 @@ class SistemaController extends Controller
                 if(Hash::check($request->respuesta_3, $user->respuesta_3)){
 
                     $request->validate([
-                        'password' => ['required', 'string', 'confirmed', 'max: 255']
+                        'password' => ['required', 'string', 'confirmed', 'max: 255', 'min:8']
                     ]);
                     $user->password = Hash::make($request->password);
                     $user->save();

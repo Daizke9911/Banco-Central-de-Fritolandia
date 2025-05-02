@@ -17,8 +17,12 @@ class ForgotPasswordController extends Controller
     public function verificar_usuario(Request $request)
     {
         $request->validate([
-            'username' => 'required|string|max:255|exists:users,username',
-            'cedula' => 'required|numeric|min:1000000|max:99999999|exists:users,cedula',
+            'username' => 'required|string|min:6|max:255|exists:users,username',
+            'cedula' => 'required|numeric|min:1000000|max:99999999|exists:users,cedula'
+        ],
+        [
+            'cedula.min' => 'La cantidad minima es del 7 digitos',
+            'cedula.max' => 'La cantidad maxima es de 8 digitos'
         ]);
 
         $user = User::where('username', $request->username)
@@ -89,7 +93,7 @@ class ForgotPasswordController extends Controller
         }
 
         $request->validate([
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:8|max:255|confirmed',
         ]);
 
         $user = User::findOrFail(session('password_recover_user_id'));

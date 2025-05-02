@@ -27,7 +27,7 @@ class MovimientosRequest extends FormRequest
             'money' => 'required|numeric|min:1|max:1000000',
             'cuentaType' => 'required',
             'concepto' => 'required|max:255',
-            'password' => 'required'
+            'password' => 'required|string|min:8|max:255'
         ];
     }
     public function messages()

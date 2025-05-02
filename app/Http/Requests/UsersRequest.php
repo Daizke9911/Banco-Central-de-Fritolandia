@@ -27,8 +27,8 @@ class UsersRequest extends FormRequest
         $user = User::find($userId);
 
         return [
-            'name' => 'required|max:100',
-            'username' => 'required|max:100',
+            'name' => 'required|min:4|max:100',
+            'username' => 'required|min:6|max:100',
             'cedula' => 'required|numeric|min:100000|max:99999999|unique:users,cedula,'.$user->id,
             'phone' => 'required|numeric|min:10000000000|max:99999999999|unique:users,phone,'.$user->id,
             'nacimiento' => 'required|date',
