@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{asset('styles/transferir.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/transferir.css">
     <link rel="stylesheet" href="{{asset('styles/show_movimientos.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/show_movimientos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/show_movimientos.css">
     <x-temas />
 </head>    
 <body>
