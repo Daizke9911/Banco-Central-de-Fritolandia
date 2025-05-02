@@ -15,6 +15,6 @@
 </aside>
 
 <script src="{{asset('js/sidebar.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/public/js/sidebar.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/js/sidebar.js"></script>
 
 
