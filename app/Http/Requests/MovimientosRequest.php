@@ -23,7 +23,7 @@ class MovimientosRequest extends FormRequest
     {
         return [
             'cedula' => 'required|numeric|min:100000|max:99999999|exists:users,cedula',
-            'phone' => 'required|numeric|min:10000000000|max:99999999999|exists:users,phone',
+            'phone' => 'required|numeric|min:1000000000|max:99999999999|exists:users,phone',
             'money' => 'required|numeric|min:1|max:1000000',
             'cuentaType' => 'required',
             'concepto' => 'required|max:255',

@@ -30,7 +30,7 @@ class UsersRequest extends FormRequest
             'name' => 'required|min:4|max:100',
             'username' => 'required|min:6|max:100',
             'cedula' => 'required|numeric|min:100000|max:99999999|unique:users,cedula,'.$user->id,
-            'phone' => 'required|numeric|min:10000000000|max:99999999999|unique:users,phone,'.$user->id,
+            'phone' => 'required|numeric|min:1000000000|max:99999999999|unique:users,phone,'.$user->id,
             'nacimiento' => 'required|date',
             'email' => 'required|email|unique:users,email,'.$user->id,
         ];
@@ -38,10 +38,10 @@ class UsersRequest extends FormRequest
     public function messages()
     {
         return[
-            'cedula.min' => 'La cantidad minima es del 7 digitos',
-            'cedula.max' => 'La cantidad maxima es de 8 digitos',
-            'phone.min' => 'La cantidad minima es del 11 digitos',
-            'phone.max' => 'La cantidad maxima es de 11 digitos'
+            'cedula.min' => 'La cantidad minima de la cedula es del 7 digitos',
+            'cedula.max' => 'La cantidad maxima de la cedula es de 8 digitos',
+            'phone.min' => 'La cantidad minima del número telefonico es del 11 digitos',
+            'phone.max' => 'La cantidad maxima del número telefonico es del 11 digitos'
         ];
     }
     public function attributes()
