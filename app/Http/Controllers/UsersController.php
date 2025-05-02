@@ -10,9 +10,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class UsersController extends Controller
 {
+    use AuthorizesRequests;
+    
     public function index(){
 
         if (! Gate::allows('viewAny', auth()->user())) {
@@ -57,9 +61,9 @@ class UsersController extends Controller
     }
 
     public function show($user){
-        if (! Gate::allows('view', auth()->user())) {
-            abort(403, 'No tienes autorización para esta pagina, compre oro');
-        }
+        
+        $userToEdit = User::findOrFail($user);
+        $this->authorize('view', $userToEdit);
 
         $infoUser=User::find($user);
         $cuentas = Cuentas::where('user_id',$infoUser->id)->get();
@@ -67,9 +71,9 @@ class UsersController extends Controller
     }
 
     public function edit($user){
-        if (! Gate::allows('update', auth()->user())) {
-            abort(403, 'No tienes autorización para esta pagina, compre oro');
-        }
+
+        $userToEdit = User::findOrFail($user);
+        $this->authorize('update', $userToEdit);
 
         $infoUser=User::find($user);
         $cuentas = Cuentas::where('user_id',$infoUser->id)->get();
@@ -77,9 +81,8 @@ class UsersController extends Controller
     }
 
     public function update(UsersRequest $request, $infoUser){
-        if (! Gate::allows('update', auth()->user())) {
-            abort(403, 'No tienes autorización para esta pagina, compre oro');
-        }
+        $userToEdit = User::findOrFail($infoUser); // Buscar el usuario por ID
+        $this->authorize('update', $userToEdit); 
 
         $user = User::find($infoUser);
         
