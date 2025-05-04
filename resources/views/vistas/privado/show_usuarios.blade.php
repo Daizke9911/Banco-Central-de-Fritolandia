@@ -8,8 +8,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuario {{$infoUser->name}}</title>
-    <link rel="stylesheet" href="{{asset('styles/dashboard.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/dashboardDos.css">
+
+    <x-head />  <!--HEAD DEL SISTEMA-->
+    
     <link rel="stylesheet" href="{{asset('styles/transferir.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/transferir.css">
     <link rel="stylesheet" href="{{asset('styles/show_movimientos.css')}}">

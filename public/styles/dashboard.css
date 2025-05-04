@@ -1,6 +1,7 @@
 body {
     font-family: sans-serif;
     margin: 0;
+    padding: 0;
     background-color: #f4f6f8;
     color: #333;
 }
@@ -12,6 +13,7 @@ body {
 
 /* Sidebar */
 .sidebar {
+    position: relative;
     background-color: var(--sidebar);
     color: #fff;
     width: 200px;
@@ -21,10 +23,17 @@ body {
 }
 
 .logo {
+    background-color: rgba(0, 0, 0, 0.582);
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 30px;
     text-align: center;
+    cursor: default;
+    transition: transform 0.3s cubic-bezier(0.4, 2, 0.6, 1);
+}
+
+.logo:hover {
+    transform: scale(1.1);
 }
 
 .side-menu a {
@@ -70,16 +79,6 @@ header h1 {
     font-size: 2em;
 }
 
-.user-info {
-    display: flex;
-    align-items: center;
-}
-
-.username {
-    margin-right: 15px;
-    font-weight: bold;
-}
-
 .logout-btn {
     background-color: #dc3545;
     text-decoration: none;
@@ -98,15 +97,7 @@ header h1 {
 /* Content Area */
 .content-area {
     flex-grow: 1;
-    margin: 20px;
-}
-
-.detalle-container{
-    margin: 20px auto;
-}
-
-.dashboard-section {
-    display: none; /* Ocultar todas las secciones por defecto */
+    margin: 0 20px;
 }
 
 /* Widgets Grid */
@@ -122,7 +113,7 @@ header h1 {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    width: 200px;
+    width: 230px;
 }
 
 .widget h3 {

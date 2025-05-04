@@ -33,11 +33,11 @@ foreach ($saldos as $saldo) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-    <link rel="stylesheet" href="{{asset('styles/dashboard.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/dashboardDos.css">
+
+    <x-head />  <!--HEAD DEL SISTEMA-->
+
     <link rel="stylesheet" href="{{asset('styles/dashboard_grafia.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/dashboard_grafia.css">
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/dashboard_grafia.css">-->
 
     <x-temas />
 </head>
@@ -53,7 +53,9 @@ foreach ($saldos as $saldo) {
                     <a class="logout-btn" href="{{route('logout')}}" onclick="localStorage.removeItem('activeSidebarRoute');">Cerrar Sesión</a>
                 </div>
             </header>
+
             <div class="content-area">
+
                     <h2>Saldo Disponible</h2>
                     <div class="widgets-grid">
                         @foreach ($saldos as $saldo)

@@ -1,13 +1,3 @@
-
-.historial-container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 1200px;
-}
-
 h2 {
     color: #333;
     margin-bottom: 20px;
@@ -17,7 +7,6 @@ h2 {
 #tabla-movimientos, .tabla-movimientos{
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
 }
 
 #tabla-movimientos th,

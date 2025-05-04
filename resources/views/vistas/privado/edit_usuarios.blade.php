@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar {{$infoUser->name}}</title>
-    <link rel="stylesheet" href="{{asset('styles/dashboard.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/dashboardDos.css">
+
+    <x-head />  <!--HEAD DEL SISTEMA-->
+
     <link rel="stylesheet" href="{{asset('styles/edit_usuarios.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/edit_usuarios.css">
+    
     <x-temas />
 </head>
 <body>
@@ -129,7 +131,7 @@
                             <button type="submit">Editar</button>
                         </div>
                         <div class="form-group full-width">
-                            <a class="volver-a" href="{{route('usuarios.index')}}">Volver</a>
+                            <a class="volver-a" style="text-decoration: none" href="{{route('usuarios.index')}}">Volver</a>
                         </div>
                         
                     </form>

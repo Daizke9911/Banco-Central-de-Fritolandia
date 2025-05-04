@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagar Servicio</title>
-    <link rel="stylesheet" href="estilos-generales.css">
-    <link rel="stylesheet" href="{{asset('styles/dashboard.css')}}">
+
+    <x-head />  <!--HEAD DEL SISTEMA-->
+    
     <link rel="stylesheet" href="{{asset('styles/create_servicios.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/create_servicios.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/dashboardDos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/create_serviciosDos.css">
+   
     <x-temas />
 </head>
 <body>

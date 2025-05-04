@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios</title>
-    <link rel="stylesheet" href="{{asset('styles/dashboard.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/dashboardDos.css">
+
+    <x-head />  <!--HEAD DEL SISTEMA-->
+    
     <link rel="stylesheet" href="{{asset('styles/index_movimientos.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/index_movimientos.css">
     <link rel="stylesheet" href="{{asset('styles/botones_index_usuarios.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/botones_index_usuarios.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    
     <x-temas />
 </head>
 <body>

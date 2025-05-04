@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema - Aspectos del Sistema</title>
+    
+    <x-head />  <!--HEAD DEL SISTEMA-->
+    
     <link rel="stylesheet" href="{{asset('styles/show_movimientos.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/show_movimientos.css">
-    <link rel="stylesheet" href="{{asset('styles/dashboard.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/dashboardDos.css">
     <link rel="stylesheet" href="{{asset('styles/index_sistema.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/index_sistema.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/index_sistemaDos.css">
     <style>
         .paleta-color {
             display: inline-block;
@@ -26,6 +27,7 @@
             transform: scale(1.1); /* Escala al 110% al pasar el ratón */
         }
     </style>
+    
     <x-temas />
 </head>
 <body>
@@ -46,7 +48,7 @@
 
                 <x-botones_sistema />   <!--BOTONES-->
 
-                <div class="detalle-container" style="margin: 50px auto">
+                <div class="detalle-container">
                     <div class="card-body">
 
                         <h3>Eliga un color</h3>

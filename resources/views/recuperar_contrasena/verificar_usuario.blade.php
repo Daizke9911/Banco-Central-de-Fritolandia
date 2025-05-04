@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ __('Recuperar Contraseña') }} - Paso 1</title>
+    <link rel="icon" href="{{asset('files/logo_bcf.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('styles/register.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/registerDos.css">
 </head>

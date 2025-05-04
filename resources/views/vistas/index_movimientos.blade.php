@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movimientos</title>
-    <link rel="stylesheet" href="{{asset('styles/dashboard.css')}}">
+    
+    <x-head />  <!--HEAD DEL SISTEMA-->
+
     <link rel="stylesheet" href="{{asset('styles/index_movimientos.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/index_movimientos.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/dashboardDos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/index_movimientosDos.css">
+    
     <x-temas />
 </head>
 <body>

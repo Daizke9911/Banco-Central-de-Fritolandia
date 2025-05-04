@@ -6,6 +6,7 @@
     <title>Persona</title>
     <link rel="stylesheet" href="{{asset('styles/login.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/login.css">
+    <link rel="icon" href="{{asset('files/logo_bcf.png')}}" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
