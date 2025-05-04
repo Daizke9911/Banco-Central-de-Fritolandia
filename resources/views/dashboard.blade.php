@@ -37,7 +37,7 @@ foreach ($saldos as $saldo) {
     <x-head />  <!--HEAD DEL SISTEMA-->
 
     <link rel="stylesheet" href="{{asset('styles/dashboard_grafia.css')}}">
-    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/dashboard_grafia.css">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/dashboard_grafia.css">
 
     <x-temas />
 </head>
