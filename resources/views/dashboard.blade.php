@@ -200,7 +200,6 @@ foreach ($saldos as $saldo) {
         // Agrega más event listeners para otros botones de gráficos
     });
 </script>
-    </script>
 
     </body>
 </html>
