@@ -1,3 +1,7 @@
+<?php
+$n = 0;
+$d = 0;
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -54,25 +58,60 @@
                         <span id="email">{{$infoUser->email}}</span>
                     </div>
                     @foreach ($cuentas as $cuenta)
-                        @if ($cuenta->cuentaType == 1)
-                            <div class="info-group">
-                                <label>Cuenta Corriente:</label>
-                                <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
-                            </div>
-                            <div class="info-group monto">
-                                <label>Saldo:</label>
-                                <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}}</span>
-                            </div>
+                        @if ($cuenta->moneda == "nacional")
+                            @if ($n == 0)
+                                <hr>
+                                <h3>Cuentas en Moneda Nacional</h3>
+                                <?php $n++; ?>
+                            @endif
+                        
+                            @if ($cuenta->cuentaType == 1)
+                                <div class="info-group">
+                                    <label>Cuenta Corriente:</label>
+                                    <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
+                                </div>
+                                <div class="info-group monto">
+                                    <label>Saldo:</label>
+                                    <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}} Fs.</span>
+                                </div>
+                            @else
+                                <div class="info-group">
+                                    <label>Cuenta Ahorro:</label>
+                                    <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
+                                </div>
+                                <div class="info-group monto">
+                                    <label>Saldo:</label>
+                                    <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}} Fs.</span>
+                                </div>
+                            @endif
                         @else
-                            <div class="info-group">
-                                <label>Cuenta Ahorro:</label>
-                                <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
-                            </div>
-                            <div class="info-group monto">
-                                <label>Saldo:</label>
-                                <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}}</span>
-                            </div>
+                            @if ($d == 0)
+                                <hr>
+                                <h3>Cuentas en Dolares</h3>
+                                <?php $d++; ?>
+                            @endif
+                            
+                            @if ($cuenta->cuentaType == 1)
+                                <div class="info-group">
+                                    <label>Cuenta Corriente:</label>
+                                    <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
+                                </div>
+                                <div class="info-group monto">
+                                    <label>Saldo:</label>
+                                    <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}} $.</span>
+                                </div>
+                            @else
+                                <div class="info-group">
+                                    <label>Cuenta Ahorro:</label>
+                                    <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
+                                </div>
+                                <div class="info-group monto">
+                                    <label>Saldo:</label>
+                                    <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}} $.</span>
+                                </div>
+                            @endif
                         @endif
+                        
                     @endforeach
                     
                 </div>
