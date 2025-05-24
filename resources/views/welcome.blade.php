@@ -145,7 +145,7 @@
             </li>
             <li>
               <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://www.youtube.com/watch?v=EQK39VTHxc4">
-                <img src="{{asset('files/chavela.png')}}" alt="primer vicepresidente" width="80px">
+                <img src="{{asset('files/chavela.PNG')}}" alt="primer vicepresidente" width="80px">
                 <div class="col-lg-8">
                   <h6 class="mb-0">Primer Vicepresidente del Banco</h6>
                 </div>
@@ -153,7 +153,7 @@
             </li>
             <li>
               <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://www.youtube.com/watch?v=BTtWNfTBDHo">
-                <img src="{{asset('files/loser.png')}}" alt="segundo vicepresidente" width="80px">
+                <img src="{{asset('files/loser.PNG')}}" alt="segundo vicepresidente" width="80px">
                 <div class="col-lg-8">
                   <h6 class="mb-0">Segundo Vicepresidente del Banco</h6>
                 </div>
@@ -161,7 +161,7 @@
             </li>
             <li>
               <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://www.youtube.com/watch?v=gsnC-MgAmc4">
-                <img src="{{asset('files/7678.png')}}" alt="gerencia tecnica" width="80px">
+                <img src="{{asset('files/7678.PNG')}}" alt="gerencia tecnica" width="80px">
                 <div class="col-lg-8">
                   <h6 class="mb-0">Gerencia Técnica</h6>
                 </div>
@@ -169,7 +169,7 @@
             </li>
             <li>
               <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://www.tiktok.com/@ia.ma047/video/7487713717426113798?is_from_webapp=1&sender_device=pc&web_id=7494640262867961349">
-                <img src="{{asset('files/blankgabo.png')}}" alt="padre" width="80px">
+                <img src="{{asset('files/blankgabo.PNG')}}" alt="padre" width="80px">
                 <div class="col-lg-8">
                   <h6 class="mb-0">Padre Motopiruetero de la República</h6>
                 </div>
