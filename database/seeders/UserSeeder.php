@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
         $user->nacimiento = '2025-12-12';
         $user->email = 'admin@admin.com';
         $user->role = 'admin';
-        $user->password = bcrypt('111');
+        $user->password = bcrypt('9911Daizuke9911');
         $user->pregunta_1 = '1';
         $user->respuesta_1 = bcrypt('1');
         $user->pregunta_2 = '2';

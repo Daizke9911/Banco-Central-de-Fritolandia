@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="{{asset('styles/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/bootstrap.min.css">
-  <body  style="background-color: #55555575;">
+  <body  style="background-color: #28283b;">
 
 <div class="container"  style="background-color: #ffffff;">
   <header class="border-bottom lh-1 py-3">

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aperturar Cuenta</title>
     <link rel="stylesheet" href="{{asset('styles/register.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/register.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/registerDos.css">
     <link rel="stylesheet" href="{{asset('styles/paginacion_bootstrap.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/paginacion_bootstrap.css">
     
