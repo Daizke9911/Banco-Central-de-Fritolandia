@@ -8,7 +8,7 @@
     <x-head />  <!--HEAD DEL SISTEMA-->
     
     <link rel="stylesheet" href="{{asset('styles/show_movimientos.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/show_movimientos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/show_movimientosDos.css">
 
     
     <x-temas />
