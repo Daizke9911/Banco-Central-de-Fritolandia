@@ -57,134 +57,73 @@ class SistemaController extends Controller
 
     public function update_aspecto(Request $request){
         $request->validate([
-            'sidebar' => 'nullable|string|max:7', // Valida que sea una cadena (ej: #RRGGBB)
+            'sidebar' => 'nullable|string|max:7'
         ]);
         
-        if(Auth::user()->tema()->where('user_id', Auth::id())->exists()){
-            if($request->sidebar == "#800000"){
-                $tema = Auth::user()->tema;
-                $tema->sidebar = $request->sidebar;
-                $tema->button_sidebar = "#b62121";
-                $tema->text_color_sidebar = "#fff";
-                $tema->background = "";
-                $tema->save();
+        if($request->sidebar == "#800000"){
+            $tema = Auth::user()->tema;
+            $tema->sidebar = $request->sidebar;
+            $tema->button_sidebar = "#b62121";
+            $tema->text_color_sidebar = "#fff";
+            $tema->background = "#ffd3d369";
+            $tema->save();
 
-                return back()->with('success', '¡Color de pestaña guardado!');
+            return back()->with('success', '¡Color de pestaña guardado!');
 
-            }elseif($request->sidebar == "#158000"){
-                $tema = Auth::user()->tema;
-                $tema->sidebar = $request->sidebar;
-                $tema->button_sidebar = "#36a320";
-                $tema->text_color_sidebar = "#fff";
-                $tema->background = "";
-                $tema->save();
+        }elseif($request->sidebar == "#158000"){
+            $tema = Auth::user()->tema;
+            $tema->sidebar = $request->sidebar;
+            $tema->button_sidebar = "#36a320";
+            $tema->text_color_sidebar = "#fff";
+            $tema->background = "#d4ffcc93";
+            $tema->save();
 
-                return back()->with('success', '¡Color de pestaña guardado!');
-            }elseif($request->sidebar == "#000080"){
-                $tema = Auth::user()->tema;
-                $tema->sidebar = $request->sidebar;
-                $tema->button_sidebar = "#2b2baa";
-                $tema->text_color_sidebar = "#fff";
-                $tema->background = "";
-                $tema->save();
+            return back()->with('success', '¡Color de pestaña guardado!');
+        }elseif($request->sidebar == "#000080"){
+            $tema = Auth::user()->tema;
+            $tema->sidebar = $request->sidebar;
+            $tema->button_sidebar = "#2b2baa";
+            $tema->text_color_sidebar = "#fff";
+            $tema->background = "#d0d0ff67";
+            $tema->save();
 
-                return back()->with('success', '¡Color de pestaña guardado!');
-            }elseif($request->sidebar == "#808000"){
-                $tema = Auth::user()->tema;
-                $tema->sidebar = $request->sidebar;
-                $tema->button_sidebar = "#a8a820";
-                $tema->text_color_sidebar = "#fff";
-                $tema->background = "";
-                $tema->save();
+            return back()->with('success', '¡Color de pestaña guardado!');
+        }elseif($request->sidebar == "#808000"){
+            $tema = Auth::user()->tema;
+            $tema->sidebar = $request->sidebar;
+            $tema->button_sidebar = "#a8a820";
+            $tema->text_color_sidebar = "#fff";
+            $tema->background = "#f8f8c6a8";
+            $tema->save();
 
-                return back()->with('success', '¡Color de pestaña guardado!');
-            }elseif($request->sidebar == "#008080"){
-                $tema = Auth::user()->tema;
-                $tema->sidebar = $request->sidebar;
-                $tema->button_sidebar = "#1ea5a5";
-                $tema->text_color_sidebar = "#fff";
-                $tema->background = "";
-                $tema->save();
+            return back()->with('success', '¡Color de pestaña guardado!');
+        }elseif($request->sidebar == "#008080"){
+            $tema = Auth::user()->tema;
+            $tema->sidebar = $request->sidebar;
+            $tema->button_sidebar = "#1ea5a5";
+            $tema->text_color_sidebar = "#fff";
+            $tema->background = "#cefdfd6b";
+            $tema->save();
 
-                return back()->with('success', '¡Color de pestaña guardado!');
-            }elseif($request->sidebar == "#800080"){
-                $tema = Auth::user()->tema;
-                $tema->sidebar = $request->sidebar;
-                $tema->button_sidebar = "#992899";
-                $tema->text_color_sidebar = "#fff";
-                $tema->background = "";
-                $tema->save();
+            return back()->with('success', '¡Color de pestaña guardado!');
+        }elseif($request->sidebar == "#800080"){
+            $tema = Auth::user()->tema;
+            $tema->sidebar = $request->sidebar;
+            $tema->button_sidebar = "#992899";
+            $tema->text_color_sidebar = "#fff";
+            $tema->background = "#ffc6ff67";
+            $tema->save();
 
-                return back()->with('success', '¡Color de pestaña guardado!');
-            }
-            
-        }else{
+            return back()->with('success', '¡Color de pestaña guardado!');
+        }elseif($request->sidebar == "#343a40"){
+            $tema = Auth::user()->tema;
+            $tema->sidebar = $request->sidebar;
+            $tema->button_sidebar = "#007bff";
+            $tema->text_color_sidebar = "#fff";
+            $tema->background = "#f4f6f8";
+            $tema->save();
 
-            if($request->sidebar == "#800000"){
-                $tema = new Tema();
-            $tema->user_id = Auth::user()->id;
-                $tema->sidebar = $request->sidebar;
-                $tema->button_sidebar = "#b62121";
-                $tema->text_color_sidebar = "#fff";
-                $tema->background = "";
-                $tema->save();
-
-                return back()->with('success', '¡Color de pestaña guardado!');
-
-            }elseif($request->sidebar == "#158000"){
-                $tema = new Tema();
-            $tema->user_id = Auth::user()->id;
-                $tema->sidebar = $request->sidebar;
-                $tema->button_sidebar = "#36a320";
-                $tema->text_color_sidebar = "#fff";
-                $tema->background = "";
-                $tema->save();
-
-                return back()->with('success', '¡Color de pestaña guardado!');
-            }elseif($request->sidebar == "#000080"){
-                $tema = new Tema();
-            $tema->user_id = Auth::user()->id;
-                $tema->sidebar = $request->sidebar;
-                $tema->button_sidebar = "#2b2baa";
-                $tema->text_color_sidebar = "#fff";
-                $tema->background = "";
-                $tema->save();
-
-                return back()->with('success', '¡Color de pestaña guardado!');
-            }elseif($request->sidebar == "#808000"){
-                $tema = new Tema();
-            $tema->user_id = Auth::user()->id;
-                $tema->sidebar = $request->sidebar;
-                $tema->button_sidebar = "#a8a820";
-                $tema->text_color_sidebar = "#fff";
-                $tema->background = "";
-                $tema->save();
-
-                return back()->with('success', '¡Color de pestaña guardado!');
-            }elseif($request->sidebar == "#008080"){
-                $tema = new Tema();
-            $tema->user_id = Auth::user()->id;
-                $tema->sidebar = $request->sidebar;
-                $tema->button_sidebar = "#1ea5a5";
-                $tema->text_color_sidebar = "#fff";
-                $tema->background = "";
-                $tema->save();
-
-                return back()->with('success', '¡Color de pestaña guardado!');
-            }elseif($request->sidebar == "#800080"){
-                $tema = new Tema();
-            $tema->user_id = Auth::user()->id;
-                $tema->sidebar = $request->sidebar;
-                $tema->button_sidebar = "#992899";
-                $tema->text_color_sidebar = "#fff";
-                $tema->background = "";
-                $tema->save();
-
-                return back()->with('success', '¡Color de pestaña guardado!');
-            }
+            return back()->with('success', '¡Color de pestaña guardado!');
         }
-        
-
-        
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Solicitudes;
 use App\Models\User;
+use App\Policies\SolicitudesPolicy;
 use App\Policies\UserPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
@@ -23,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     protected $policies = [
         User::class => UserPolicy::class,
+        Solicitudes::class => SolicitudesPolicy::class
         // Otras políticas que puedas tener...
     ];
 

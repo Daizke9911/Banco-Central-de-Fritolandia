@@ -13,6 +13,7 @@ class Movimientos extends Model
         'movedMoney',
         'saldo',
         'cuentaType',
+        'moneda',
         'cuenta_transferida',
         'user_id_transferido',
         'cuenta_recibida',

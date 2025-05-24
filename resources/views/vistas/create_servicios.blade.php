@@ -8,7 +8,7 @@
     <x-head />  <!--HEAD DEL SISTEMA-->
     
     <link rel="stylesheet" href="{{asset('styles/create_servicios.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/create_serviciosDos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/create_servicios.css">
    
     <x-temas />
 </head>
@@ -21,7 +21,7 @@
             <header>
                 <h1>Pago de Servicios</h1>
                 <div class="user-info">
-                    <a class="logout-btn" href="{{route('logout')}}" onclick="localStorage.removeItem('activeSidebarRoute');">Cerrar Sesión</a>
+                    <x-logout />    <!--LOGOUT-->
                 </div>
             </header>
 
@@ -76,7 +76,7 @@
                                 <option value="">Seleccione una cuenta</option>
                                 ${cuentasLogin.map(cuenta => `
                                     <option value="${cuenta.cuentaType}">
-                                        ${cuenta.cuentaType == 1 ? 'Corriente' : 'Ahorro'} = ${cuenta.availableBalance} Bs.
+                                        ${cuenta.cuentaType == 1 ? 'Corriente' : 'Ahorro'} = ${cuenta.availableBalance} Fs.
                                     </option>
                                 `).join('')}
                             </select>
@@ -137,7 +137,7 @@
                                 <option value="">Seleccione una cuenta</option>
                                 ${cuentasLogin.map(cuenta => `
                                     <option value="${cuenta.cuentaType}">
-                                        ${cuenta.cuentaType == 1 ? 'Corriente' : 'Ahorro'} = ${cuenta.availableBalance} Bs.
+                                        ${cuenta.cuentaType == 1 ? 'Corriente' : 'Ahorro'} = ${cuenta.availableBalance} Fs.
                                     </option>
                                 `).join('')}
                             </select>
@@ -154,7 +154,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="montoInput">Monto a Pagar (Bs):</label>
+                            <label for="montoInput">Monto a Pagar (Fs):</label>
                             <input type="number" id="montoInput" name="monto" class="@error('monto') is-invalid @enderror" step="0.01" min="0.01" value="{{old('monto')}}" required>
                            
                         </div>
@@ -180,7 +180,7 @@
                                 <option value="">Seleccione una cuenta</option>
                                 ${cuentasLogin.map(cuenta => `
                                     <option value="${cuenta.cuentaType}">
-                                        ${cuenta.cuentaType == 1 ? 'Corriente' : 'Ahorro'} = ${cuenta.availableBalance} Bs.
+                                        ${cuenta.cuentaType == 1 ? 'Corriente' : 'Ahorro'} = ${cuenta.availableBalance} Fs.
                                     </option>
                                 `).join('')}
                             </select>
@@ -197,7 +197,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="montoInput">Monto a Pagar (Bs):</label>
+                            <label for="montoInput">Monto a Pagar (Fs):</label>
                             <input type="number" id="montoInput" name="monto" step="0.01" min="0.01" value="{{old('monto')}}" class="@error('monto') is-invalid @enderror" required>
                             
                         </div>
@@ -215,3 +215,6 @@
         });
     });
 </script>
+
+</body>
+</html>

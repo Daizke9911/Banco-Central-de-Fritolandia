@@ -8,9 +8,9 @@
     <x-head />  <!--HEAD DEL SISTEMA-->
     
     <link rel="stylesheet" href="{{asset('styles/show_movimientos.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/show_movimientos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/show_movimientos.css">
     <link rel="stylesheet" href="{{asset('styles/index_sistema.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/index_sistemaDos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/index_sistema.css">
     <style>
         .paleta-color {
             display: inline-block;
@@ -41,7 +41,7 @@
             <header>
                 <h1>Configuraciones del Sistema</h1>
                 <div class="user-info">
-                    <a class="logout-btn" href="{{route('logout')}}"  onclick="localStorage.removeItem('activeSidebarRoute');">Cerrar Sesión</a>
+                    <x-logout />    <!--LOGOUT-->
                 </div>
             </header>
             <div class="content-area">
@@ -59,6 +59,7 @@
                             <div class="paleta-color" style="background-color: #808000;" data-color="#808000"></div>
                             <div class="paleta-color" style="background-color: #008080;" data-color="#008080"></div>
                             <div class="paleta-color" style="background-color: #800080;" data-color="#800080"></div>
+                            <div class="paleta-color" style="background-color: #343a40;" data-color="#343a40"></div>
                         </div>
                         <form id="formulario-color" action="{{ route('update_aspecto') }}" method="POST">
                             @csrf

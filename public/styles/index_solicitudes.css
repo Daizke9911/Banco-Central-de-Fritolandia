@@ -1,0 +1,78 @@
+.div-boton-solicitud{
+    display: flex;
+}
+
+.boton-aceptar, .boton-info, .boton-bloquear, .boton-delete,
+.boton-desbloquear{
+    width: 80px;
+    height: 40px;
+    padding: auto;
+    margin: 1px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.boton-aceptar{
+    border-width: 3px;
+    border-color: rgb(1, 194, 1);
+    background-color: greenyellow;
+    transition: background-color 0.3s ease;
+}
+.boton-aceptar:hover{
+    border-color: greenyellow;
+    background-color: rgba(172, 255, 47, 0.3);
+}
+.boton-info{
+    width: 90px;
+    border-width: 3px;
+    border-color: rgb(185, 167, 2);
+    background-color: rgb(255, 255, 0);
+    transition: background-color 0.3s ease;
+}
+.boton-info:hover{
+    border-color: rgb(255, 255, 0);
+    background-color: rgba(255, 255, 0, 0.3);
+}
+.boton-bloquear{
+    color: #fff;
+    border-width: 3px;
+    border-color: rgb(134, 134, 134);
+    background-color: black;
+    transition: background-color 0.3s ease;
+}
+.boton-bloquear:hover{
+    border-color: black;
+    background-color: rgb(136, 136, 136);
+}
+.boton-delete{
+    border-width: 3px;
+    border-color: rgb(133, 13, 13);
+    background-color: red;
+    transition: background-color 0.3s ease;
+}
+.boton-delete:hover{
+    border-color: red;
+    background-color: rgba(255, 0, 0, 0.37);
+}
+
+.boton-desbloquear{
+    width: 90px;
+    border-width: 3px;
+    border-color: #0a7e6a;
+    background-color: rgb(0, 255, 170);
+    transition: background-color 0.3s ease;
+}
+.boton-desbloquear:hover{
+    border-color: rgb(0, 255, 170);;
+    background-color: rgba(0, 255, 170, 0.349);
+}
+
+.h2-bloqueo{
+    margin-top: 10%;
+}
+
+@media only screen and (max-width: 1000px) {
+    .div-boton-solicitud{
+        display: grid;
+    }
+}

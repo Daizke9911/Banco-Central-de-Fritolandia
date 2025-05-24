@@ -36,7 +36,9 @@ class ForgotPasswordController extends Controller
         // Almacenar el ID del usuario en la sesión para los siguientes pasos
         session(['password_recover_user_id' => $user->id]);
 
-        return redirect()->route('vista_preguntas_seguridad');
+        $s = 0;
+
+        return redirect()->route('vista_preguntas_seguridad', compact('s'));
     }
 
     public function vista_preguntas_seguridad()

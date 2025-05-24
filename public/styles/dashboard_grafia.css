@@ -1,17 +1,18 @@
 
     .chart-selector {
+        display: flex;
         margin-bottom: 20px;
     }
 
-    .chart-button {
-        padding: 10px 15px;
-        margin-right: 10px;
+    .chart-button, .chart-button-dolar{
+        padding: 7px 15px;
         border: 1px solid #ccc;
         border-radius: 5px;
         cursor: pointer;
         background-color: #f9f9f9;
     }
 
-    .chart-button.active {
+    .chart-button.active, .chart-button-dolar.active-dolar{
         background-color: #e0e0e0;
+        border-color: black;
     }

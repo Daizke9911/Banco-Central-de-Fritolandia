@@ -5,8 +5,9 @@ h2 {
 }
 
 #tabla-movimientos, .tabla-movimientos{
-    width: 100%;
+    width: calc(100% - 30px); /* Para el ancho */
     border-collapse: collapse;
+    margin: auto;
 }
 
 #tabla-movimientos th,
@@ -22,6 +23,11 @@ h2 {
 .tabla-movimientos th {
     background-color: #f0f0f0;
     font-weight: bold;
+}
+
+#tabla-movimientos td,
+.tabla-movimientos td {
+    background-color: #f0f0f071;
 }
 
 #tabla-movimientos tbody tr:nth-child(even) {
@@ -74,6 +80,7 @@ h2 {
     padding: 3px 10px;
     border-radius: 10px;
     transition: background-color 0.3s ease;
+    cursor: pointer;
     border: none;
   }
 

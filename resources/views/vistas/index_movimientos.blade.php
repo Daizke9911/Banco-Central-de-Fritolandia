@@ -8,7 +8,7 @@
     <x-head />  <!--HEAD DEL SISTEMA-->
 
     <link rel="stylesheet" href="{{asset('styles/index_movimientos.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/index_movimientosDos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/index_movimientos.css">
     
     <x-temas />
 </head>
@@ -32,7 +32,7 @@
             <header>
                 <h1>Historial de Movimientos</h1>
                 <div class="user-info">
-                    <a class="logout-btn" href="{{route('logout')}}" onclick="localStorage.removeItem('activeSidebarRoute');">Cerrar Sesión</a>
+                    <x-logout />    <!--LOGOUT-->
                 </div>
             </header>
 
@@ -43,8 +43,9 @@
                         <tr>
                             <th>Fecha</th>
                             <th>Referencia</th>
-                            <th>Monto (Bs)</th>
+                            <th>Monto</th>
                             <th>Concepto</th>
+                            <th>Moneda</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -64,7 +65,7 @@
 
                 // Simulación de datos de movimientos (en una aplicación real, esto vendría del servidor)
                 const movimientos = [
-                    { id: {{$movimiento->id}}, fecha: '{{$movimiento->created_at}}', referencia: '{{$movimiento->reference}}', monto: {{$movimiento->movedMoney}}, concepto: '{{$movimiento->concept}}' },
+                    { id: {{$movimiento->id}}, fecha: '{{$movimiento->created_at}}', referencia: '{{$movimiento->reference}}', monto: {{$movimiento->movedMoney}}, concepto: '{{$movimiento->concept}}', moneda: '{{$movimiento->moneda}}' },
                     // ... más movimientos
                 ];
 
@@ -83,6 +84,9 @@
 
                     const conceptoCell = row.insertCell();
                     conceptoCell.textContent = movimiento.concepto;
+
+                    const monedaCell = row.insertCell();
+                    monedaCell.textContent = movimiento.moneda;
 
                     const accionesCell = row.insertCell();
                     const detalleButton = document.createElement('button');

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tranferencias en Dolar</title>
+
+    <x-head />  <!--HEAD DEL SISTEMA-->
+    
+    <link rel="stylesheet" href="{{asset('styles/transferir.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/transferir.css">
+    
+    <x-temas />
+</head>
+<body>
+    <div class="dashboard-container">
+
+        <x-sidebar />  <!--SIDEBAR-->
+
+        <main class="main-content">
+            <header>
+                <h1>Realizar Transferencia en Dolares</h1>
+                <div class="user-info">
+                    <x-logout />    <!--LOGOUT-->
+                </div>
+            </header>
+
+            <x-alertas_bootstrap />
+
+            <div class="content-area">
+                    <div class="transferencia-container">
+                        @if ($i > 0) 
+                            <form id="transferencia-form" method="POST" action="{{route('tranferencia.storeDolar')}}">
+                            
+                            @csrf
+                            
+
+                            <div class="form-group">
+                                <label for="cuentaTypeLoginInput">Cuenta a Debitar:</label>
+                                <select id="cuentaTypeLoginInput" name="cuentaTypeLogin" class="@error('cuentaTypeLogin') is-invalid @enderror" required>
+                                    <option value="">Seleccionar su cuenta</option>
+                                    @foreach ($cuentasLogin as $cuentaLogin)
+                                        @if ($cuentaLogin->cuentaType == 1)
+                                            <option value="1">Cuenta Corriente = {{$cuentaLogin->availableBalance}} $.</option>
+                                        @else
+                                            <option value="2">Cuenta de Ahorro = {{$cuentaLogin->availableBalance}} $.</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <hr style="margin: 15px 0">
+                
+                            <div class="form-group">
+                                <label for="cedulaInput">Cédula:</label>
+                                <input type="text" id="cedulaInput" name="cedula" class="@error('cedula') is-invalid @enderror" pattern="[0-9]+" title="Ingrese solo números" value="{{old('cedula')}}" required>
+                               
+                            </div>
+                
+                            <div class="form-group">
+                                <label for="phoneInput">Teléfono:</label>
+                                <input type="tel" id="phoneInput" name="phone" class="@error('phone') is-invalid @enderror" pattern="[0-9]+" title="Ingrese solo números" value="{{old('phone')}}" required>
+                                
+                            </div>
+                
+                            <div class="form-group">
+                                <label for="moneyInput">Monto a Transferir ($):</label>
+                                <input type="number" step="0.01" id="moneyInput" class="@error('money') is-invalid @enderror" name="money" min="0.01" value="{{old('money')}}" required>
+                            
+                            </div>
+                
+                            <div class="form-group">
+                                <label for="cuentaTypeInput">Cuenta de Destino:</label>
+                                <select id="cuentaTypeInput" name="cuentaType" class="@error('cuentaType') is-invalid @enderror" required>
+                                    <option value="">Seleccionar tipo de cuenta</option>
+                                    <option value="1">Cuenta Corriente</option>
+                                    <option value="2">Cuenta de Ahorro</option>
+                                </select>
+                            </div>
+                
+                            <div class="form-group">
+                                <label for="conceptoInput">Concepto:</label>
+                                <textarea id="conceptoInput" name="concepto" class="@error('concepto') is-invalid @enderror" rows="3" cols="10" maxlength="30" required>{{old('concepto')}}</textarea>
+                               
+                            </div>
+                
+                            <div class="form-group">
+                                <label for="passwordInput">Contraseña:</label>
+                                <input type="password" id="passwordInput" name="password" class="@error('password') is-invalid @enderror" required>
+                               
+                            </div>
+
+                            <p>Cada transacción tiene un interes del 2%</p>
+
+                            <button type="submit" class="transferir-button">Transferir</button>
+                        </form>
+
+
+                        @else
+                            <h2>No se encuentran cuentas en dolares</h2>
+                            <p style="text-align: center;">Solicitala Ya!   <a href="{{route('solicitudes.edit', Auth::user()->id)}}" style="text-decoration: none;">Click Aquí</a></p>
+                        @endif
+                        
+                    </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

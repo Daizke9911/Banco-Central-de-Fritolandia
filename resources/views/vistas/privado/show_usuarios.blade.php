@@ -1,4 +1,6 @@
 <?php 
+$bloqueo = 1;
+$bloqueoDos = 1;
 
 ?>
 
@@ -12,9 +14,9 @@
     <x-head />  <!--HEAD DEL SISTEMA-->
     
     <link rel="stylesheet" href="{{asset('styles/transferir.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/transferir.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/transferir.css">
     <link rel="stylesheet" href="{{asset('styles/show_movimientos.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/show_movimientos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/show_movimientos.css">
     <x-temas />
 </head>    
 <body>
@@ -26,7 +28,7 @@
             <header>
                 <h1>Información del Usuario</h1>
                 <div class="user-info">
-                    <a class="logout-btn" href="{{route('logout')}}"  onclick="localStorage.removeItem('activeSidebarRoute');">Cerrar Sesión</a>
+                    <x-logout />    <!--LOGOUT-->
                 </div>
             </header>
 
@@ -55,24 +57,57 @@
                         <span id="email">{{$infoUser->email}}</span>
                     </div>
                     @foreach ($cuentas as $cuenta)
-                        @if ($cuenta->cuentaType == 1)
-                            <div class="info-group">
-                                <label>Cuenta Corriente:</label>
-                                <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
-                            </div>
-                            <div class="info-group monto">
-                                <label>Saldo:</label>
-                                <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}}</span>
-                            </div>
-                        @else
-                            <div class="info-group">
-                                <label>Cuenta Ahorro:</label>
-                                <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
-                            </div>
-                            <div class="info-group monto">
-                                <label>Saldo:</label>
-                                <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}}</span>
-                            </div>
+                        @if($cuenta->moneda == "nacional")
+                            @if ($bloqueo == 1)
+                                <hr>
+                                <h3>Cuentas en Fritos:</h3>
+                                <?php $bloqueo = 0; ?>
+                            @endif
+                            @if ($cuenta->cuentaType == 1)
+                                <div class="info-group">
+                                    <label>Cuenta Corriente:</label>
+                                    <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
+                                </div>
+                                <div class="info-group monto">
+                                    <label>Saldo:</label>
+                                    <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}}</span>
+                                </div>
+                            @else
+                                <div class="info-group">
+                                    <label>Cuenta Ahorro:</label>
+                                    <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
+                                </div>
+                                <div class="info-group monto">
+                                    <label>Saldo:</label>
+                                    <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}}</span>
+                                </div>
+                            @endif
+                        @endif
+                        @if($cuenta->moneda == "dolar")
+                            @if ($bloqueoDos == 1)
+                                <hr>
+                                <h3>Cuentas en Dolares:</h3>
+                                <?php $bloqueoDos = 0; ?>
+                            @endif
+                            @if ($cuenta->cuentaType == 1)
+                                <div class="info-group">
+                                    <label>Cuenta Corriente:</label>
+                                    <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
+                                </div>
+                                <div class="info-group monto">
+                                    <label>Saldo:</label>
+                                    <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}}</span>
+                                </div>
+                            @else
+                                <div class="info-group">
+                                    <label>Cuenta Ahorro:</label>
+                                    <span id="cuentaCorriente">{{$cuenta->accountNumber}}</span>
+                                </div>
+                                <div class="info-group monto">
+                                    <label>Saldo:</label>
+                                    <span id="fecha-hora-transferencia">{{$cuenta->availableBalance}}</span>
+                                </div>
+                            @endif
                         @endif
                     @endforeach
                     

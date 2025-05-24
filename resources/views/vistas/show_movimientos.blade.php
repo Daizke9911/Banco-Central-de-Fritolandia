@@ -22,9 +22,9 @@
     <x-head />  <!--HEAD DEL SISTEMA-->
 
     <link rel="stylesheet" href="{{asset('styles/transferir.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/transferir.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/transferir.css">
     <link rel="stylesheet" href="{{asset('styles/show_movimientos.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/show_movimientos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/show_movimientos.css">
     
     <x-temas />
 </head>
@@ -40,7 +40,7 @@
             <header>
                 <h1>Historial de Movimientos</h1>
                 <div class="user-info">
-                    <a class="logout-btn" href="{{route('logout')}}" onclick="localStorage.removeItem('activeSidebarRoute');">Cerrar Sesión</a>
+                    <x-logout />    <!--LOGOUT-->
                 </div>
             </header>
 
@@ -55,6 +55,10 @@
                     <div class="info-group">
                         <label>Concepto:</label>
                         <span id="concepto"></span>
+                    </div>
+                    <div class="info-group">
+                        <label>Moneda de la Operación:</label>
+                        <span id="moneda"></span>
                     </div>
                     <div class="info-group">
                         <label>Monto de la Operación:</label>
@@ -94,10 +98,11 @@
 
             document.getElementById('reference').textContent = urlParams.get('reference') || '{{$movimientos->reference}}';
             document.getElementById('concepto').textContent = urlParams.get('concepto') || '{{$movimientos->concept}}';
-            document.getElementById('montoOperacion').textContent = (parseFloat(urlParams.get('montoOperacion')) || {{$movimientos->movedMoney}}).toFixed(2) + ' Bs';
+            document.getElementById('montoOperacion').textContent = (parseFloat(urlParams.get('montoOperacion')) || {{$movimientos->movedMoney}}).toFixed(2) + ' Fs.';
             document.getElementById('saldoTotal').textContent = urlParams.get('saldoTotal') || '{{$movimientos->saldo}}';
             document.getElementById('cuentaAfectada').textContent = urlParams.get('cuentaAfectada') || '{{$cuenta}}';
             document.getElementById('cuentaInvolucrada').textContent = urlParams.get('cuentaInvolucrada') || '{{$tacho}}';
+            document.getElementById('moneda').textContent = urlParams.get('cuentaInvolucrada') || '{{$movimientos->moneda}}';
 
             // Simulación de fecha y hora (en una aplicación real, esto vendría del servidor)
             const now = '{{$movimientos->created_at}}';

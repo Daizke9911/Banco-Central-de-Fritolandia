@@ -69,4 +69,17 @@ class User extends Authenticatable
     {
         return $this->hasOne(Tema::class);
     }
+
+    public function solicitud(): HasOne
+    {
+        return $this->hasOne(Solicitudes::class);
+    }
+
+    public function buzon(){
+        return $this->hasMany(Buzon::class);
+    }
+
+    public function historialDivisa(){
+        return $this->hasMany(HistorialDivisas::class);
+    }
 }

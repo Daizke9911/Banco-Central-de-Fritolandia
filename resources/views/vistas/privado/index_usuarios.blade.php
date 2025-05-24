@@ -8,9 +8,9 @@
     <x-head />  <!--HEAD DEL SISTEMA-->
     
     <link rel="stylesheet" href="{{asset('styles/index_movimientos.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/index_movimientos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/index_movimientos.css">
     <link rel="stylesheet" href="{{asset('styles/botones_index_usuarios.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/botones_index_usuarios.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/botones_index_usuarios.css">
     
     <x-temas />
 </head>
@@ -26,7 +26,7 @@
             <header>
                 <h1>Usuarios del Banco</h1>
                 <div class="user-info">
-                    <a class="logout-btn" href="{{route('logout')}}"  onclick="localStorage.removeItem('activeSidebarRoute');">Cerrar Sesión</a>
+                    <x-logout />    <!--LOGOUT-->
                 </div>
             </header>
 

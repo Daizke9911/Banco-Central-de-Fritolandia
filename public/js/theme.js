@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
             --sidebar: ${window.sidebar};
             --button-sidebar: ${window.buttonSidebar};
             --text-color-sidebar: ${window.textColorSidebar};
-            --backgraund: ${window.backgraund};
+            --background: ${window.background};
           }`;
         document.head.appendChild(style);
 
@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
         elementsToColorDos.forEach(element => {
             element.style.backgroundColor = 'var(--button-sidebar)';
             element.style.color = 'var(--text-color-sidebar)';
+            // element.style.backgroundColor = 'var(--backgraund)';
+        });
+        const elementsToColorTres = document.querySelectorAll('body');
+        elementsToColorTres.forEach(element => {
+            element.style.backgroundColor = 'var(--background)';
             // element.style.backgroundColor = 'var(--backgraund)';
         });
     }

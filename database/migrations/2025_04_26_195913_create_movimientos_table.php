@@ -21,6 +21,8 @@ return new class extends Migration
             $table->float('saldo');
             $table->string('cuentaType')
             ->nullable();
+            $table->string('moneda')
+            ->nullable();
             $table->string('cuenta_transferida')
             ->nullable();
             $table->foreignId('user_id_transferido')

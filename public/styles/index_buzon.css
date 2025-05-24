@@ -1,0 +1,20 @@
+.boton-info{
+    width: 80px;
+    height: 40px;
+    padding: auto;
+    margin: 1px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.boton-info{
+    width: 90px;
+    border-width: 3px;
+    border-color: rgb(185, 167, 2);
+    background-color: rgb(255, 255, 0);
+    transition: background-color 0.3s ease;
+}
+.boton-info:hover{
+    border-color: rgb(255, 255, 0);
+    background-color: rgba(255, 255, 0, 0.3);
+}

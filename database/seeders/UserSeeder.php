@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Cuentas;
+use App\Models\Solicitudes;
 use App\Models\Tema;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -24,7 +25,7 @@ class UserSeeder extends Seeder
         $user->nacimiento = '2025-12-12';
         $user->email = 'admin@admin.com';
         $user->role = 'admin';
-        $user->password = bcrypt('111111111');
+        $user->password = bcrypt('111');
         $user->pregunta_1 = '1';
         $user->respuesta_1 = bcrypt('1');
         $user->pregunta_2 = '2';
@@ -41,15 +42,31 @@ class UserSeeder extends Seeder
         $tema->background = "";
         $user->tema()->save($tema);
 
+        $solicitud = new Solicitudes();
+        $user->solicitud()->save($solicitud);
+
         $cuenta = new Cuentas();
+        $cuenta->moneda = "nacional";
         $cuenta->accountNumber = '9911000001';
-        $cuenta->availableBalance = '200';
         $cuenta->cuentaType = '1';
         $cuenta->user_id = '1';
         $cuenta->save();
         $cuenta = new Cuentas();
-        $cuenta->accountNumber = '9911000002';
-        $cuenta->availableBalance = '200';
+        $cuenta->moneda = "nacional";
+        $cuenta->accountNumber = '9911000002'; 
+        $cuenta->cuentaType = '2';
+        $cuenta->user_id = '1';
+        $cuenta->save();
+
+        $cuenta = new Cuentas();
+        $cuenta->moneda = "dolar";
+        $cuenta->accountNumber = '9912000001';
+        $cuenta->cuentaType = '1';
+        $cuenta->user_id = '1';
+        $cuenta->save();
+        $cuenta = new Cuentas();
+        $cuenta->moneda = "dolar";
+        $cuenta->accountNumber = '9912000002'; 
         $cuenta->cuentaType = '2';
         $cuenta->user_id = '1';
         $cuenta->save();
@@ -78,15 +95,18 @@ class UserSeeder extends Seeder
         $tema->background = "";
         $user->tema()->save($tema);
 
+        $solicitud = new Solicitudes();
+        $user->solicitud()->save($solicitud);
+
         $cuenta = new Cuentas();
+        $cuenta->moneda = "nacional";
         $cuenta->accountNumber = '9911000003';
-        $cuenta->availableBalance = '200';
         $cuenta->cuentaType = '1';
         $cuenta->user_id = '2';
         $cuenta->save();
         $cuenta = new Cuentas();
+        $cuenta->moneda = "nacional";
         $cuenta->accountNumber = '9911000004';
-        $cuenta->availableBalance = '200';
         $cuenta->cuentaType = '2';
         $cuenta->user_id = '2';
         $cuenta->save();
@@ -115,9 +135,12 @@ class UserSeeder extends Seeder
         $tema->background = "";
         $user->tema()->save($tema);
 
+        $solicitud = new Solicitudes();
+        $user->solicitud()->save($solicitud);
+
         $cuenta = new Cuentas();
+        $cuenta->moneda = "nacional";
         $cuenta->accountNumber = '9911000005';
-        $cuenta->availableBalance = '200';
         $cuenta->cuentaType = '2';
         $cuenta->user_id = '3';
         $cuenta->save();
@@ -146,9 +169,12 @@ class UserSeeder extends Seeder
         $tema->background = "";
         $user->tema()->save($tema);
 
+        $solicitud = new Solicitudes();
+        $user->solicitud()->save($solicitud);
+
         $cuenta = new Cuentas();
+        $cuenta->moneda = "nacional";
         $cuenta->accountNumber = '9911000006';
-        $cuenta->availableBalance = '200';
         $cuenta->cuentaType = '2';
         $cuenta->user_id = 4;
         $cuenta->save();
@@ -177,9 +203,12 @@ class UserSeeder extends Seeder
         $tema->background = "";
         $user->tema()->save($tema);
 
+        $solicitud = new Solicitudes();
+        $user->solicitud()->save($solicitud);
+
         $cuenta = new Cuentas();
+        $cuenta->moneda = "nacional";
         $cuenta->accountNumber = '9911000007';
-        $cuenta->availableBalance = '200';
         $cuenta->cuentaType = '2';
         $cuenta->user_id = '5';
         $cuenta->save();
@@ -208,9 +237,12 @@ class UserSeeder extends Seeder
         $tema->background = "";
         $user->tema()->save($tema);
 
+        $solicitud = new Solicitudes();
+        $user->solicitud()->save($solicitud);
+
         $cuenta = new Cuentas();
+        $cuenta->moneda = "nacional";
         $cuenta->accountNumber = '9911000008';
-        $cuenta->availableBalance = '200';
         $cuenta->cuentaType = '2';
         $cuenta->user_id = '6';
         $cuenta->save();
@@ -239,16 +271,19 @@ class UserSeeder extends Seeder
         $tema->background = "";
         $user->tema()->save($tema);
 
+        $solicitud = new Solicitudes();
+        $user->solicitud()->save($solicitud);
+
         $cuenta = new Cuentas();
+        $cuenta->moneda = "nacional";
         $cuenta->accountNumber = '9911000009';
-        $cuenta->availableBalance = '200';
         $cuenta->cuentaType = '2';
         $cuenta->user_id = '7';
         $cuenta->save();
 
         $cuenta = new Cuentas();
+        $cuenta->moneda = "nacional";
         $cuenta->accountNumber = '9911000010';
-        $cuenta->availableBalance = '200';
         $cuenta->cuentaType = '1';
         $cuenta->user_id = '7';
         $cuenta->save();

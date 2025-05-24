@@ -8,7 +8,7 @@
     <x-head />  <!--HEAD DEL SISTEMA-->
 
     <link rel="stylesheet" href="{{asset('styles/edit_usuarios.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/edit_usuarios.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/edit_usuarios.css">
     
     <x-temas />
 </head>
@@ -21,7 +21,7 @@
             <header>
                 <h1>Editar al Usuario {{$infoUser->username}}</h1>
                 <div class="user-info">
-                    <a class="logout-btn" href="{{route('logout')}}"  onclick="localStorage.removeItem('activeSidebarRoute');">Cerrar Sesión</a>
+                    <x-logout />    <!--LOGOUT-->
                 </div>
             </header>
 

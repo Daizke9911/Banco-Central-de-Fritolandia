@@ -11,6 +11,12 @@
         $tacho = maskNumber($movimientos->cuenta_recibida, 4, 3);
     }
 
+    if($movimientos->moneda == "nacional"){
+        $movimientos->moneda = "Fritos";
+    }elseif($movimientos->moneda == "dolar"){
+        $movimientos->moneda =="Dolar";
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -117,6 +123,10 @@
                 <div class="info-group">
                     <label>Concepto:</label>
                     <span id="concepto">{{$movimientos->concept}}</span>
+                </div>
+                <div class="info-group">
+                    <label>Moneda Utilizada:</label>
+                    <span id="concepto">{{$movimientos->moneda}}</span>
                 </div>
                 <div class="info-group">
                     <label>Monto de la Operación:</label>

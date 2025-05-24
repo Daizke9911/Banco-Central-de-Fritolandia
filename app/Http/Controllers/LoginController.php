@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterRequest;
 use App\Models\Cuentas;
 use App\Models\Roles;
+use App\Models\Solicitudes;
 use App\Models\Tema;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -43,6 +44,7 @@ class LoginController extends Controller
                 if(empty($verificarCuenta->accountNumber)){
                     $cuenta->accountNumber = $number;
                     $cuenta->cuentaType = $request['cuentaType'];
+                    $cuenta->moneda = "nacional";
                     $number = 111;
                 }else{
                     $i++;
@@ -54,8 +56,12 @@ class LoginController extends Controller
         $tema->sidebar = "#343a40";
         $tema->button_sidebar = "#007bff";
         $tema->text_color_sidebar = "#fff";
-        $tema->background = "";
+        $tema->background = "#f4f6f8";
         $user->tema()->save($tema);
+
+        $solicitud = new Solicitudes();
+        $user->solicitud()->save($solicitud);
+
 
         event(new Registered($user));
         
@@ -85,6 +91,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect(route('login'));
+        return redirect(route('welcome'));
     }
 }

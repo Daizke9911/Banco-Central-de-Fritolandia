@@ -17,6 +17,8 @@ return new class extends Migration
             ->constrained()
             ->onDelete('cascade')
             ->onUpdate('cascade');
+            $table->string('moneda')
+            ->nullable();
             $table->unsignedBigInteger('accountNumber')
             ->nullable();
             $table->float('availableBalance')

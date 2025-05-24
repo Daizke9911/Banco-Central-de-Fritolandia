@@ -8,7 +8,7 @@
     <x-head />  <!--HEAD DEL SISTEMA-->
     
     <link rel="stylesheet" href="{{asset('styles/transferir.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/transferirDos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/transferir.css">
     
     <x-temas />
 </head>
@@ -21,7 +21,7 @@
             <header>
                 <h1>Realizar Transferencia</h1>
                 <div class="user-info">
-                    <a class="logout-btn" href="{{route('logout')}}" onclick="localStorage.removeItem('activeSidebarRoute');">Cerrar Sesión</a>
+                    <x-logout />    <!--LOGOUT-->
                 </div>
             </header>
 
@@ -41,9 +41,9 @@
                                     <option value="">Seleccionar su cuenta</option>
                                     @foreach ($cuentasLogin as $cuentaLogin)
                                         @if ($cuentaLogin->cuentaType == 1)
-                                            <option value="1">Cuenta Corriente = {{$cuentaLogin->availableBalance}} Bs.</option>
+                                            <option value="1">Cuenta Corriente = {{$cuentaLogin->availableBalance}} Fs.</option>
                                         @else
-                                            <option value="2">Cuenta de Ahorro = {{$cuentaLogin->availableBalance}} Bs.</option>
+                                            <option value="2">Cuenta de Ahorro = {{$cuentaLogin->availableBalance}} Fs.</option>
                                         @endif
                                     @endforeach
                                 </select>
@@ -64,7 +64,7 @@
                             </div>
                 
                             <div class="form-group">
-                                <label for="moneyInput">Monto a Transferir (Bs):</label>
+                                <label for="moneyInput">Monto a Transferir (Fs.):</label>
                                 <input type="number" step="0.01" id="moneyInput" class="@error('money') is-invalid @enderror" name="money" min="0.01" value="{{old('money')}}" required>
                             
                             </div>

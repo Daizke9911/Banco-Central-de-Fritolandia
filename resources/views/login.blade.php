@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Persona</title>
     <link rel="stylesheet" href="{{asset('styles/login.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/login.css">
+    <link rel="stylesheet" href="{{asset('styles/paginacion_bootstrap.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/paginacion_bootstrap.css">
+    
     <link rel="icon" href="{{asset('files/logo_bcf.png')}}" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -14,6 +17,7 @@
     <x-alertas_bootstrap />
 
     <div class="login-container">
+        <img src="{{asset('files/logo_bcf.png')}}" alt="logo" width="80px">
         <h2>Persona Natural</h2>
         <form id="login-form" method="POST" action="{{route('iniciar-sesion')}}">
 

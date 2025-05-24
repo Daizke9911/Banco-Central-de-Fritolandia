@@ -6,7 +6,10 @@
     <title>{{ __('Recuperar Contraseña') }} - Paso 2</title>
     <link rel="icon" href="{{asset('files/logo_bcf.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('styles/register.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/styles_BCF@master/styles/registerDos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/register.css">
+    <link rel="stylesheet" href="{{asset('styles/paginacion_bootstrap.css')}}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Daizke9911/estilosBCF@master/styles/paginacion_bootstrap.css">
+    
 </head>
 <body>
     <div class="container">
